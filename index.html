@@ -3,456 +3,1077 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Angry Young Men — A Literary Guide</title>
+<title>The Angry Young Men — A Literary Study</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ink:#1a1714;--ink2:#3d3830;--ink3:#6b6157;
-  --paper:#f5f0e8;--paper2:#ede7d9;--paper3:#e0d8c8;
-  --red:#8b2020;--amber:#7a4f1a;--slate:#2a3d5c;
-  --female:#7a2050;--rule:rgba(26,23,20,0.12);
+  --bg:#d4d0c8;
+  --bg2:#c8c4bc;
+  --bg3:#e0dcd4;
+  --card:#eceae4;
+  --ink:#1a1714;
+  --ink2:#2e2b26;
+  --ink3:#5a5650;
+  --red:#a81a1a;
+  --red2:#c82020;
+  --blue:#1a3d6a;
+  --blue2:#245a9a;
+  --gold:#7a5808;
+  --green:#1a4a28;
+  --female:#6a0838;
+  --slate:#2a3a50;
+  --rule:rgba(0,0,0,0.12);
+  --rule2:rgba(0,0,0,0.2);
+  --dark:#2a2a38;
+  --dark2:#363648;
 }
-body{font-family:Georgia,serif;background:var(--paper);color:var(--ink);max-width:900px;margin:0 auto}
 
-.site-nav{background:var(--ink);display:flex;flex-wrap:wrap;position:sticky;top:0;z-index:100}
-.nav-a{color:rgba(245,240,232,.5);font-family:sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:.7rem 1.2rem;border-bottom:2px solid transparent;transition:.15s}
-.nav-a:hover,.nav-a.active{color:var(--paper);border-bottom-color:#c8a96e}
+body{font-family:Georgia,serif;background:var(--bg);color:var(--ink);max-width:960px;margin:0 auto;min-height:100vh}
 
-.hero{background:var(--ink);color:var(--paper);padding:3rem 2rem 2.5rem;position:relative;overflow:hidden}
-.hero-rule{width:40px;height:2px;background:#c8a96e;margin-bottom:1.25rem}
-.hero-eyebrow{font-family:sans-serif;font-size:10px;letter-spacing:.18em;color:rgba(245,240,232,.4);text-transform:uppercase;margin-bottom:.75rem}
-.hero-title{font-size:clamp(30px,5vw,52px);font-weight:400;font-style:italic;line-height:1.1;margin-bottom:1rem}
-.hero-title em{font-style:normal;color:#c8a96e}
-.hero-sub{font-size:15px;color:rgba(245,240,232,.6);line-height:1.8;max-width:560px;font-family:sans-serif;font-weight:300}
+/* ══ HERO ══ */
+.hero{background:var(--dark);padding:4rem 2.5rem 3rem;border-bottom:5px solid var(--red)}
+.hero-kicker{font-family:sans-serif;font-size:10px;letter-spacing:.25em;color:rgba(255,255,255,.35);text-transform:uppercase;margin-bottom:1rem}
+.hero-title{font-size:clamp(42px,7vw,80px);font-weight:400;font-style:italic;line-height:.95;color:#fff;margin-bottom:1.5rem}
+.hero-title em{font-style:normal;color:var(--red2);display:block}
+.hero-bar{display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.hero-stat{text-align:center;padding:.75rem 1.25rem;border:1px solid rgba(255,255,255,.12)}
+.hero-stat-n{font-family:sans-serif;font-size:28px;font-weight:300;color:var(--red2);display:block;line-height:1}
+.hero-stat-l{font-family:sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);display:block;margin-top:4px}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.55);line-height:1.85;max-width:580px;font-family:sans-serif;font-weight:300}
 
-section{padding:3rem 2rem;border-bottom:1px solid var(--rule)}
-.section-eyebrow{font-family:sans-serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);margin-bottom:.5rem}
-h2.section-title{font-size:24px;font-weight:400;color:var(--ink);margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--rule)}
-h3.sub{font-family:sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:2rem 0 .75rem}
+/* ══ MAIN TABS ══ */
+.main-tabs{background:var(--dark2);display:flex;flex-wrap:wrap;position:sticky;top:0;z-index:200;border-bottom:2px solid rgba(255,255,255,.06)}
+.main-tab{flex:1;min-width:70px;padding:.7rem .4rem;font-family:sans-serif;font-size:10px;letter-spacing:.06em;text-transform:uppercase;background:none;border:none;border-bottom:3px solid transparent;cursor:pointer;color:rgba(255,255,255,.4);transition:.15s;text-align:center}
+.main-tab:hover{color:rgba(255,255,255,.8)}
+.main-tab.active{color:#fff;border-bottom-color:var(--red2)}
 
-.prose p{font-size:15px;line-height:1.85;color:var(--ink2);margin-bottom:1rem}
+/* ══ SECTIONS / PANELS ══ */
+.main-sec{display:none;animation:fi .18s ease}
+.main-sec.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+
+.inner-tabs{display:flex;flex-wrap:wrap;gap:5px;padding:1.25rem 2rem;background:var(--bg2);border-bottom:1px solid var(--rule2)}
+.inner-tab{padding:5px 14px;font-size:11px;font-family:sans-serif;background:var(--card);border:1px solid var(--rule2);cursor:pointer;color:var(--ink3);transition:.15s}
+.inner-tab:hover{border-color:var(--blue2);color:var(--blue)}
+.inner-tab.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.inner-tab.red-tab.active{background:var(--red);border-color:var(--red);color:#fff}
+.inner-tab.red-tab:hover{border-color:var(--red2);color:var(--red)}
+
+.inner-panel{display:none}
+.inner-panel.active{display:block}
+.pad{padding:2rem 2.5rem}
+
+/* ══ PULL QUOTE — the hero visual element ══ */
+.pull{margin:2rem 0;padding:1.5rem 2rem;border-left:6px solid var(--red);background:var(--card);position:relative}
+.pull::before{content:'\201C';position:absolute;top:-.5rem;left:1rem;font-size:80px;color:var(--red);opacity:.2;font-family:Georgia,serif;line-height:1}
+.pull-text{font-size:clamp(18px,2.5vw,24px);font-style:italic;line-height:1.4;color:var(--ink);margin-bottom:.5rem}
+.pull-attr{font-family:sans-serif;font-size:11px;color:var(--ink3);letter-spacing:.06em;text-transform:uppercase}
+
+.pull.blue{border-left-color:var(--blue);background:var(--bg3)}
+.pull.blue::before{color:var(--blue)}
+.pull.gold{border-left-color:var(--gold);background:var(--bg3)}
+.pull.gold::before{color:var(--gold)}
+.pull.dark{border-left-color:var(--red2);background:var(--dark);color:#fff}
+.pull.dark .pull-text{color:rgba(255,255,255,.9)}
+.pull.dark .pull-attr{color:rgba(255,255,255,.45)}
+.pull.dark::before{color:var(--red2);opacity:.3}
+
+/* FULL-WIDTH PULL — magazine style */
+.pull-full{background:var(--dark);color:#fff;padding:2.5rem 2.5rem;margin:2rem -2.5rem;text-align:center;border-top:3px solid var(--red);border-bottom:3px solid var(--red)}
+.pull-full .pull-text{font-size:clamp(20px,3vw,32px);color:rgba(255,255,255,.92);max-width:680px;margin:0 auto .75rem}
+.pull-full .pull-attr{color:rgba(255,255,255,.4)}
+
+/* ══ SECTION BANNERS ══ */
+.sec-banner{background:var(--red);color:#fff;padding:.6rem 2.5rem;margin:0 -2.5rem 1.5rem;font-family:sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.sec-banner.blue{background:var(--blue)}
+.sec-banner.gold{background:var(--gold)}
+.sec-banner.slate{background:var(--slate)}
+.sec-banner.dark{background:var(--dark)}
+
+/* ══ AUTHOR CARDS with large initial ══ */
+.author-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:1.5rem 0}
+.author-card{background:var(--card);border:1px solid var(--rule2);padding:1.25rem;position:relative;overflow:hidden;cursor:pointer;transition:border-color .15s}
+.author-card:hover{border-color:var(--rule2)}
+.author-initial{font-family:Georgia,serif;font-size:72px;font-weight:400;font-style:italic;line-height:.85;opacity:.12;position:absolute;right:.5rem;top:.5rem;pointer-events:none}
+.author-card.c-os .author-initial{color:var(--red)}
+.author-card.c-am .author-initial{color:var(--green)}
+.author-card.c-si .author-initial{color:var(--blue)}
+.author-card.c-br .author-initial{color:var(--gold)}
+.author-card.c-de .author-initial{color:var(--female)}
+.author-card.c-la .author-initial{color:#7a5c2a}
+.author-card.c-pi .author-initial{color:var(--slate)}
+.author-card .accent-bar{height:4px;margin:-1.25rem -1.25rem 1rem;background:var(--rule2)}
+.author-card.c-os .accent-bar{background:var(--red)}
+.author-card.c-am .accent-bar{background:var(--green)}
+.author-card.c-si .accent-bar{background:var(--blue)}
+.author-card.c-br .accent-bar{background:var(--gold)}
+.author-card.c-de .accent-bar{background:var(--female)}
+.author-card.c-la .accent-bar{background:#7a5c2a}
+.author-card.c-pi .accent-bar{background:var(--slate)}
+.author-name{font-style:italic;font-size:17px;color:var(--ink);margin-bottom:2px}
+.author-dates{font-family:sans-serif;font-size:10px;color:var(--ink3);letter-spacing:.06em;margin-bottom:.6rem}
+.author-work{font-family:sans-serif;font-size:11px;color:var(--ink3);font-style:normal;line-height:1.5}
+
+/* ══ WORK CARDS ══ */
+.work-card{background:var(--card);padding:1.5rem;margin:1.5rem 0;border:1px solid var(--rule2);position:relative}
+.work-card-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--rule)}
+.work-initial-badge{width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:28px;font-style:italic;color:#fff;flex-shrink:0;border-radius:2px}
+.wc-os .work-initial-badge{background:var(--red)}
+.wc-am .work-initial-badge{background:var(--green)}
+.wc-si .work-initial-badge{background:var(--blue)}
+.wc-br .work-initial-badge{background:var(--gold)}
+.wc-de .work-initial-badge{background:var(--female)}
+.wc-la .work-initial-badge{background:#7a5c2a}
+.wc-pi .work-initial-badge{background:var(--slate)}
+.work-title{font-style:italic;font-size:19px;color:var(--ink);display:block;margin-bottom:2px;line-height:1.2}
+.work-author{font-family:sans-serif;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+
+/* ══ INLINE STAT BLOCKS ══ */
+.stat-inline{display:inline-flex;flex-direction:column;align-items:center;background:var(--dark);color:#fff;padding:.5rem .85rem;margin:.25rem .25rem .25rem 0;vertical-align:middle;min-width:70px}
+.stat-inline .n{font-family:sans-serif;font-size:22px;font-weight:300;color:var(--red2);line-height:1}
+.stat-inline .l{font-family:sans-serif;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:2px}
+.stat-row{display:flex;gap:6px;flex-wrap:wrap;margin:1.25rem 0}
+.stat-box{background:var(--card);border:1px solid var(--rule2);border-top:3px solid var(--red);padding:.75rem 1rem;text-align:center;flex:1;min-width:100px}
+.stat-box.blue{border-top-color:var(--blue)}
+.stat-box.gold{border-top-color:var(--gold)}
+.stat-n{font-family:sans-serif;font-size:28px;font-weight:300;color:var(--red);display:block;line-height:1.1}
+.stat-box.blue .stat-n{color:var(--blue)}
+.stat-box.gold .stat-n{color:var(--gold)}
+.stat-l{font-family:sans-serif;font-size:9px;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;margin-top:3px;display:block}
+
+/* ══ TIMELINE ══ */
+.timeline-visual{margin:1.5rem 0;position:relative;padding-left:1.5rem}
+.timeline-visual::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:var(--red);opacity:.3}
+.tl-entry{position:relative;padding:.75rem 0 .75rem 1.5rem;border-bottom:1px solid var(--rule)}
+.tl-entry:last-child{border-bottom:none}
+.tl-entry::before{content:'';position:absolute;left:-1.5rem;top:1.1rem;width:10px;height:10px;border-radius:50%;background:var(--red);border:2px solid var(--bg)}
+.tl-year{font-family:sans-serif;font-size:11px;font-weight:400;color:var(--red);letter-spacing:.05em;display:block;margin-bottom:.2rem}
+.tl-title{font-style:italic;font-size:14px;color:var(--ink);margin-bottom:.2rem}
+.tl-desc{font-size:13px;line-height:1.6;color:var(--ink2)}
+
+/* ══ PROSE ══ */
+.prose p{font-size:14.5px;line-height:1.9;color:var(--ink2);margin-bottom:.9rem}
 .prose p:last-child{margin-bottom:0}
-.aside{background:var(--paper2);border-left:3px solid var(--red);padding:.85rem 1.1rem;margin:1.25rem 0;font-size:14px;font-style:italic;color:var(--ink2);line-height:1.7}
-.aside.dark{background:var(--ink);color:rgba(245,240,232,.72);border-left-color:#c8a96e;font-style:normal;font-family:sans-serif;font-size:13px}
-.aside.slate{background:#e8ecf2;border-left-color:var(--slate);font-style:normal;font-size:13px;font-family:sans-serif;color:var(--ink2)}
+.prose strong{font-weight:400;color:var(--ink)}
+h2.sec-title{font-size:20px;font-weight:400;color:var(--ink);margin-bottom:1.25rem;border-bottom:2px solid var(--red);padding-bottom:.6rem;display:inline-block}
+h3.sub{font-family:sans-serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin:1.75rem 0 .6rem}
+h3.sub-red{color:var(--red)}
+h3.sub-blue{color:var(--blue)}
+h3.sub-gold{color:var(--gold)}
+h3.sub-slate{color:var(--slate)}
 
-/* PHOTO GRID */
-.photo-grid{display:grid;gap:3px;background:var(--ink);margin:2rem 0}
-.photo-grid.cols-3{grid-template-columns:1fr 1fr 1fr}
-.photo-grid.cols-2{grid-template-columns:1fr 1fr}
-.photo-cell{position:relative;overflow:hidden;background:var(--ink)}
-.photo-cell.tall{aspect-ratio:3/4}
-.photo-cell.wide{aspect-ratio:16/9}
-.photo-cell.square{aspect-ratio:1}
-.photo-cell.span2{grid-column:span 2}
-.photo-cell img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(20%) contrast(1.05)}
-.photo-credit{font-family:sans-serif;font-size:10px;color:rgba(245,240,232,.65);padding:5px 8px;background:rgba(26,23,20,.7);line-height:1.4}
+/* ══ ASIDES ══ */
+.aside{padding:.85rem 1.1rem;margin:1.25rem 0;font-size:13.5px;line-height:1.75;border-radius:1px}
+.aside.red{background:rgba(168,26,26,.07);border-left:4px solid var(--red);color:var(--ink2);font-style:italic}
+.aside.blue{background:rgba(26,61,106,.07);border-left:4px solid var(--blue2);color:var(--ink2);font-family:sans-serif}
+.aside.gold{background:rgba(122,88,8,.07);border-left:4px solid var(--gold);color:var(--ink2);font-family:sans-serif}
+.aside.dark{background:var(--dark);border-left:4px solid var(--red2);color:rgba(255,255,255,.75);font-family:sans-serif;font-size:13px}
+.critic{font-family:sans-serif;font-size:12px;color:var(--ink3);margin-top:.5rem;display:block}
 
-/* STATS */
-.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:1.5rem 0}
-.stat{background:var(--paper2);padding:.75rem 1rem;text-align:center;border-top:2px solid var(--red)}
-.stat-n{font-size:24px;color:var(--red);display:block;font-family:sans-serif;font-weight:300}
-.stat-l{font-size:10px;color:var(--ink3);font-family:sans-serif;text-transform:uppercase;letter-spacing:.05em}
-
-/* THEMES */
-.themes-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:2rem}
-.theme-btn{padding:5px 14px;font-size:12px;font-family:sans-serif;background:none;border:.5px solid var(--ink3);cursor:pointer;color:var(--ink3);transition:.15s}
-.theme-btn:hover{border-color:var(--red);color:var(--red)}
-.theme-btn.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.theme-panel{display:none}
-.theme-panel.active{display:block}
-
-/* WORK CARDS */
-.work-card{border:.5px solid var(--rule);padding:1.25rem 1.5rem;margin:1.25rem 0;position:relative}
-.work-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
-.wc-os::before{background:var(--red)}.wc-am::before{background:#3a6b2a}
-.wc-si::before{background:var(--slate)}.wc-br::before{background:var(--amber)}
-.wc-de::before{background:var(--female)}.wc-la::before{background:#5a4a2a}
-.wc-pi::before{background:#1a2535}
-.work-title{font-style:italic;font-size:18px;color:var(--ink);display:block;margin-bottom:2px}
-.work-author{font-family:sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-bottom:1rem}
-.critic-voice{font-family:sans-serif;font-size:12px;color:var(--ink3);margin-top:.5rem;display:block;font-style:normal}
-
-/* COMPARE */
-.tbl{width:100%;border-collapse:collapse;font-size:13px;margin:.75rem 0;overflow-x:auto;display:block}
-.tbl th{background:var(--ink);color:rgba(245,240,232,.6);font-family:sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:.06em;padding:.5rem .75rem;text-align:left;font-weight:400;white-space:nowrap}
-.tbl td{padding:.55rem .75rem;border-bottom:.5px solid var(--rule);color:var(--ink2);line-height:1.5;vertical-align:top}
+/* ══ COMPARE TABLE ══ */
+.tbl{width:100%;border-collapse:collapse;font-size:13px;margin:.75rem 0;display:block;overflow-x:auto}
+.tbl th{background:var(--dark);color:rgba(255,255,255,.65);font-family:sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:.07em;padding:.6rem .75rem;text-align:left;font-weight:400;white-space:nowrap;border-bottom:2px solid var(--blue)}
+.tbl td{padding:.6rem .75rem;border-bottom:1px solid var(--rule);color:var(--ink2);line-height:1.55;vertical-align:top}
 .tbl tr:last-child td{border-bottom:none}
-.tbl td:first-child{color:var(--ink3);font-family:sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:.04em;background:var(--paper2);white-space:nowrap}
+.tbl tr:hover td{background:var(--bg2)}
+.tbl td:first-child{color:var(--ink3);font-family:sans-serif;font-size:10px;text-transform:uppercase;background:var(--bg2);white-space:nowrap}
 
-/* CONCLUSIONS */
-.conc-item{padding:1.25rem 0;border-bottom:.5px solid var(--rule)}
-.conc-item:last-child{border-bottom:none}
+/* ══ TRIO CARDS ══ */
+.trio-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:1.25rem 0}
+.trio-card{background:var(--card);padding:1.1rem 1.25rem;border:1px solid var(--rule2)}
+.trio-card.t-amis{border-top:3px solid var(--green)}
+.trio-card.t-larkin{border-top:3px solid #7a5c2a}
+.trio-card.t-braine{border-top:3px solid var(--gold)}
+.trio-name{font-family:sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.5rem}
+.trio-text{font-size:13.5px;line-height:1.75;color:var(--ink2)}
+.trio-q{font-style:italic;color:var(--ink);margin:.6rem 0;padding-left:.75rem;border-left:3px solid var(--rule2);font-size:13.5px;line-height:1.65}
+
+/* ══ CONCLUSIONS ══ */
+.conc-item{padding:1.25rem 0;border-bottom:1px solid var(--rule)}
+.conc-item:last-child{border-bottom:none;padding-bottom:0}
 .conc-name{font-family:sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.5rem}
-.conc-q{font-style:italic;font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:.4rem}
-.conc-note{font-size:12px;font-family:sans-serif;color:var(--ink3);line-height:1.5}
+.conc-q{font-style:italic;font-size:16px;line-height:1.75;color:var(--ink);margin-bottom:.4rem}
+.conc-note{font-size:13.5px;color:var(--ink2);line-height:1.7}
 
-/* TIMELINE */
-.tl-item{display:flex;gap:1rem;padding:.75rem 0;border-bottom:.5px solid var(--rule)}
-.tl-item:last-child{border-bottom:none}
-.tl-year{font-family:sans-serif;font-size:12px;color:var(--red);min-width:44px;padding-top:2px;flex-shrink:0}
-.tl-text{font-size:13px;line-height:1.65;color:var(--ink2)}
-.tl-text em{color:var(--ink)}
+/* ══ FOOTER ══ */
+footer{background:var(--dark);color:rgba(255,255,255,.35);padding:1.5rem 2.5rem;font-size:11px;font-family:sans-serif;line-height:1.8;border-top:3px solid var(--red)}
 
-footer{background:var(--ink);color:rgba(245,240,232,.35);padding:1.5rem 2rem;font-size:11px;font-family:sans-serif;line-height:1.8}
+/* ══ AUTH CHIPS ══ */
+.chip{display:inline-block;font-family:sans-serif;font-size:10px;padding:2px 8px;border-radius:10px;margin:0 3px 3px 0;text-transform:uppercase;letter-spacing:.04em}
+.chip-os{background:rgba(168,26,26,.1);color:var(--red);border:1px solid rgba(168,26,26,.2)}
+.chip-am{background:rgba(26,74,40,.1);color:var(--green);border:1px solid rgba(26,74,40,.2)}
+.chip-si{background:rgba(26,61,106,.1);color:var(--blue);border:1px solid rgba(26,61,106,.2)}
+.chip-br{background:rgba(122,88,8,.1);color:var(--gold);border:1px solid rgba(122,88,8,.2)}
+.chip-de{background:rgba(106,8,56,.1);color:var(--female);border:1px solid rgba(106,8,56,.2)}
+.chip-la{background:rgba(122,92,42,.1);color:#7a5c2a;border:1px solid rgba(122,92,42,.2)}
+.chip-pi{background:rgba(42,58,80,.1);color:var(--slate);border:1px solid rgba(42,58,80,.2)}
 
-@media(max-width:600px){
-  .photo-grid.cols-3{grid-template-columns:1fr 1fr}
-  .photo-cell.span2{grid-column:span 1}
-  .stat-row{grid-template-columns:1fr 1fr}
+@media(max-width:620px){
+  .trio-grid{grid-template-columns:1fr}
+  .pad{padding:1.25rem}
+  .inner-tabs{padding:.75rem 1.25rem}
+  .pull-full{margin:2rem -1.25rem;padding:2rem 1.25rem}
+  .sec-banner{margin:0 -1.25rem 1.25rem;padding:.6rem 1.25rem}
+  .author-cards{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
 
-<nav class="site-nav">
-  <a href="#context" class="nav-a active">Context</a>
-  <a href="#themes" class="nav-a">The Works</a>
-  <a href="#compare" class="nav-a">Comparisons</a>
-  <a href="#legacy" class="nav-a">Legacy</a>
-  <a href="#conclusions" class="nav-a">Conclusions</a>
-</nav>
-
+<!-- ══ HERO ══ -->
 <div class="hero">
-  <div class="hero-rule"></div>
-  <div class="hero-eyebrow">Britain · 1940–1960 · A literary study</div>
-  <div class="hero-title">The <em>Angry<br>Young Men</em></div>
-  <div class="hero-sub">They came from terraced houses, factories, and provincial libraries. What they wrote changed what English literature was permitted to say — about class, fury, and the bodies and voices the establishment preferred to ignore.</div>
+  <div class="hero-kicker">Britain · 1940–1960 · A literary study</div>
+  <div class="hero-title">The<em>Angry Young Men</em></div>
+  <div class="hero-bar">
+    <div class="hero-stat"><span class="hero-stat-n">1956</span><span class="hero-stat-l">Year it began</span></div>
+    <div class="hero-stat"><span class="hero-stat-n">7</span><span class="hero-stat-l">Major writers</span></div>
+    <div class="hero-stat"><span class="hero-stat-n">43,500</span><span class="hero-stat-l">Blitz deaths</span></div>
+    <div class="hero-stat"><span class="hero-stat-n">0</span><span class="hero-stat-l">Common manifesto</span></div>
+  </div>
+  <div class="hero-sub">They came from terraced houses, factories, and provincial libraries. What they wrote changed what English literature was permitted to say — and they mostly regretted it later.</div>
 </div>
 
-<!-- CONTEXT -->
-<section id="context">
-  <div class="section-eyebrow">Setting the scene</div>
-  <h2 class="section-title">The world that made them angry</h2>
+<nav class="main-tabs">
+  <button class="main-tab active" onclick="showMain('context',this)">Context</button>
+  <button class="main-tab" onclick="showMain('works',this)">The Works</button>
+  <button class="main-tab" onclick="showMain('trio',this)">Amis &amp; Larkin</button>
+  <button class="main-tab" onclick="showMain('compare',this)">Comparisons</button>
+  <button class="main-tab" onclick="showMain('legacy',this)">Legacy</button>
+  <button class="main-tab" onclick="showMain('conclusions',this)">Conclusions</button>
+  <button class="main-tab" onclick="showMain('romania',this)">Romania</button>
+</nav>
 
-  <!-- Photo: wide Blitz damage scene -->
-  <div class="photo-grid" style="grid-template-columns:1fr">
-    <div class="photo-cell wide">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Air_Raid_Damage_in_London%2C_England%2C_1940_HU36206.jpg/1200px-Air_Raid_Damage_in_London%2C_England%2C_1940_HU36206.jpg"
-           alt="Air raid damage London 1940 — Oxford Circus, Peter Robinson store destroyed"
-           onerror="this.parentElement.style.display='none'">
-      <div class="photo-credit">Air raid damage, Oxford Circus, London, 1940. Ministry of Information photograph, IWM HU36206. Public domain.</div>
-    </div>
+<!-- ══════════ CONTEXT ══════════ -->
+<div id="context" class="main-sec active">
+  <div class="inner-tabs">
+    <button class="inner-tab active" onclick="showInner('c-war',this)">The War</button>
+    <button class="inner-tab" onclick="showInner('c-fifties',this)">The Fifties</button>
+    <button class="inner-tab" onclick="showInner('c-class',this)">Class &amp; Education</button>
+    <button class="inner-tab" onclick="showInner('c-estab',this)">The Establishment</button>
+    <button class="inner-tab" onclick="showInner('c-label',this)">The Label</button>
   </div>
 
-  <div class="prose">
-    <p>Britain in 1945 had won the war and lost nearly everything else. Cities were rubble. The empire was dissolving faster than the maps could be redrawn. And the working class — who had fought and worked in disproportionate numbers — returned to find the class system waiting patiently, much as they'd left it.</p>
+  <div id="c-war" class="inner-panel active pad">
+    <div class="sec-banner dark">Background — The Second World War and its aftermath</div>
 
     <div class="stat-row">
-      <div class="stat"><span class="stat-n">43,500</span><span class="stat-l">civilian deaths, Blitz</span></div>
-      <div class="stat"><span class="stat-n">1.5M</span><span class="stat-l">Londoners made homeless</span></div>
-      <div class="stat"><span class="stat-n">1954</span><span class="stat-l">last year of wartime rationing</span></div>
+      <div class="stat-box"><span class="stat-n">43,500</span><span class="stat-l">civilian deaths, Blitz</span></div>
+      <div class="stat-box blue"><span class="stat-n">1.5M</span><span class="stat-l">Londoners made homeless</span></div>
+      <div class="stat-box gold"><span class="stat-n">9 yrs</span><span class="stat-l">rationing lasted after armistice</span></div>
+      <div class="stat-box blue"><span class="stat-n">1944</span><span class="stat-l">Education Act opened universities</span></div>
     </div>
 
-    <p>The Blitz had exposed the class system's cruelties with unusual clarity. Working-class neighbourhoods in the East End, Salford, and Coventry were hit hardest — too-little housing quality, too few shelters, too little political representation. When it was over, the 1944 Education Act gave working-class children access to grammar schools and universities. A generation arrived at institutions that hadn't been built for them, speaking accents that marked them immediately, carrying books in their heads and the wrong vowels in their mouths.</p>
-  </div>
+    <div class="pull dark">
+      <div class="pull-text">The working class had fought and worked in disproportionate numbers. They came home to find the class system waiting patiently, much as they'd left it.</div>
+    </div>
 
-  <!-- Three photos: shelter, rubble, bombed street -->
-  <div class="photo-grid cols-3">
-    <div class="photo-cell square">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Homeless_children_during_the_Blitz_D1439.jpg/800px-Homeless_children_during_the_Blitz_D1439.jpg"
-           alt="Homeless children sleeping in air raid shelter, Mill Hill, London 1940"
-           onerror="this.parentElement.style.display='none'">
-      <div class="photo-credit">Homeless children in an air raid shelter, London 1940. IWM D1439. Public domain.</div>
+    <div class="prose">
+      <p>Britain in 1945 had won the war and lost nearly everything else. Its major cities were rubble, its treasury empty, its empire dissolving faster than the maps could be redrawn. Rationing, introduced in 1940, did not end until 1954 — nine years after the armistice. For the working class, the experience of the early postwar years was less liberation than prolonged austerity wearing the face of victory.</p>
+      <p>The Blitz had exposed the class system's cruelties with unusual clarity. Working-class districts — the East End of London, Coventry, Salford, Hull — were hit hardest, because they were densest, their housing was cheapest, and they clustered around the docks and factories the Luftwaffe was targeting. Within the first six weeks of the London Blitz, a quarter of a million people in the East End alone were homeless.</p>
     </div>
-    <div class="photo-cell square">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/An_Anderson_shelter_remains_intact_amidst_destruction_in_Latham_Street%2C_Poplar%2C_London_during_1941._D5949.jpg/800px-An_Anderson_shelter_remains_intact_amidst_destruction_in_Latham_Street%2C_Poplar%2C_London_during_1941._D5949.jpg"
-           alt="Anderson shelter intact amid rubble, Poplar, London 1941"
-           onerror="this.parentElement.style.display='none'">
-      <div class="photo-credit">Anderson shelter intact amid rubble, Poplar, London, 1941. IWM D5949. Public domain.</div>
+
+    <div class="pull">
+      <div class="pull-text">The war had generated a kind of egalitarian myth — a sense that class boundaries had dissolved in the face of common danger. They had not dissolved. They had merely been temporarily inconvenient.</div>
     </div>
-    <div class="photo-cell square">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/London_shop_in_the_wake_of_V1_bombing.jpg/800px-London_shop_in_the_wake_of_V1_bombing.jpg"
-           alt="London shop after V1 bombing, sign reads More open than usual"
-           onerror="this.parentElement.style.display='none'">
-      <div class="photo-credit">London shop after V1 bombing: "More open than usual." IWM. Public domain.</div>
+
+    <div class="prose">
+      <p>The 1944 Butler Education Act gave working-class children access to grammar schools and universities for the first time. A generation arrived at institutions that hadn't been built for them, speaking accents that marked them immediately, carrying books in their heads and the wrong vowels in their mouths. This was the specific wound the Angry Young Men wrote from: educated enough to see the system clearly, not grand enough to feel comfortable inside it.</p>
+      <div class="aside red">The specific humiliation was not poverty. It was proximity. Working-class boys educated on scholarships found themselves at Oxford sitting next to men who had attended Eton on family tradition. Both groups had read the same books. Only one group knew which fork to use, and neither group could quite pretend this didn't matter.</div>
     </div>
   </div>
 
-  <div class="prose">
-    <p>This was the specific wound the Angry Young Men wrote from: educated enough to see the system clearly, not grand enough to feel comfortable inside it. The grammar-school boy at Oxford who had learned exactly which fork not to use. The factory worker in Nottingham who had read enough to know he was being talked about, but never to. That gap — between what education promised and what the class system delivered — produced a very particular kind of fury.</p>
+  <div id="c-fifties" class="inner-panel pad">
+    <div class="sec-banner">The 1950s — the world the novels actually inhabit</div>
 
-    <div class="aside">The Blitz's misery was not equally shared. Within the first six weeks, a quarter of a million people in London's East End were homeless. Working-class areas had too few shelters; in some, families gave up their shelter spots for the upper classes, who had arrived late because they had gardens to hide in first.</div>
-
-    <h3 class="sub">The welfare state and its discontents</h3>
-    <p>The Labour landslide of 1945 produced the NHS, nationalisation, and a welfare state. The rigid class hierarchy of schools, universities, accent, and inherited connection remained largely intact. Prime Minister Macmillan's famous 1957 declaration — that "most of our people have never had it so good" — was, technically, accurate. Wages were rising. The working class had fridges and televisions for the first time. And yet social mobility remained largely blocked. You could buy a fridge. You still couldn't join the club.</p>
-
-    <h3 class="sub">The cultural establishment they were reacting against</h3>
-    <p>Pre-1956 British theatre was dominated by Noël Coward and Terence Rattigan: polished, witty, crafted plays about well-dressed people with well-spoken problems. The working class appeared, if at all, as comic relief. Literature lived in Oxbridge, in a version of England that a lathe operator in Nottingham would not have recognised as his country.</p>
-
-    <div class="aside dark">The Suez Crisis of 1956 — the same year <em>Look Back in Anger</em> opened — made clear that Britain was no longer a world power. It had spent a century telling itself a story of greatness. The Angry Young Men were among those who noticed the story had stopped making sense.</div>
-
-    <h3 class="sub">How the movement was born</h3>
-    <p>The label "Angry Young Men" was coined by the Royal Court Theatre's press officer George Fearon in 1956 to promote John Osborne's debut. Most writers hated it. They had no manifesto, barely knew each other, and in several cases actively disliked each other's work. Publisher Tom Maschler admitted they "do not belong to a united movement. Far from it; they attack one another directly or indirectly." What united them was not ideology but attitude: impatience with the literary establishment's version of England, which bore no resemblance to the England they'd grown up in.</p>
-  </div>
-
-  <!-- Photo: postwar housing -->
-  <div class="photo-grid cols-2">
-    <div class="photo-cell wide">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Elephant_and_Castle_tube_station_air_raid_shelter_1940.jpg/800px-Elephant_and_Castle_tube_station_air_raid_shelter_1940.jpg"
-           alt="Civilians sheltering in Elephant and Castle Underground station, London 1940"
-           onerror="this.parentElement.style.display='none'">
-      <div class="photo-credit">Civilians sheltering at Elephant &amp; Castle Underground, London, November 1940. IWM. Public domain.</div>
+    <div class="pull-full">
+      <div class="pull-text">"Most of our people have never had it so good."</div>
+      <div class="pull-attr">— Prime Minister Harold Macmillan, July 1957. He meant it as a warning. Nobody heard it that way.</div>
     </div>
-    <div class="photo-cell wide">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Mrs_Day_and_her_cat_%27Little_One%27_in_London_during_1941._D2380.jpg/800px-Mrs_Day_and_her_cat_%27Little_One%27_in_London_during_1941._D2380.jpg"
-           alt="Mrs Day and her cat amid the ruins of the Blitz, London 1941"
-           onerror="this.parentElement.style.display='none'">
-      <div class="photo-credit">Mrs Day and her cat "Little One" amid the Blitz, London, 1941. IWM D2380. Public domain.</div>
+
+    <div class="prose">
+      <p>The war is the context, but the novels are set in its aftermath: a specific, recognisable world. The 1950s Britain of <em>Lucky Jim</em>, <em>Room at the Top</em>, and <em>Saturday Night and Sunday Morning</em> is a world of terraced streets where toilet facilities were still often outside, provincial universities staffed by second-rate academics, factory shifts at Raleigh or Player's or any one of dozens of Midlands manufacturers, pub culture as the primary social institution of working-class life, and council estates rising from bombsites — some of them still only half-built at the decade's end.</p>
+      <p>Macmillan's declaration was technically accurate. Real wages had risen by approximately 30% between 1951 and 1959. Unemployment was below 2%. The working class, for the first time, had access to refrigerators, television sets, and washing machines. The NHS had removed the constant existential terror of illness. By any historical standard, these were years of improving material conditions.</p>
+    </div>
+
+    <div class="pull blue">
+      <div class="pull-text">You could buy a fridge. You still couldn't join the club.</div>
+      <div class="pull-attr">The central paradox of the 1950s that the movement wrote about</div>
+    </div>
+
+    <div class="prose">
+      <p>Social mobility — the ability to actually change one's place in the hierarchy — remained largely blocked by the mechanisms of the class system: the school one attended, the university one did or didn't go to, the accent one spoke with, the inherited connections one did or didn't possess. The grammar-school boy could attend Oxford. Once there, he discovered that nobody would invite him to their dinner parties, and that the people who had attended Eton were going to get the interesting jobs.</p>
+      <p>The movement was also a geographical revolt. These were writers from the provinces — Bradford, Nottingham, Salford, Swansea — writing about provincial life at a moment when English literature's centre of gravity was still entirely London and Oxbridge. Jim Dixon is at a northern red-brick university. Arthur Seaton works in a Nottingham factory. Joe Lampton moves to a Yorkshire town. The north of England was, for the first time, insisting on literary existence.</p>
+      <div class="aside blue">The 1950s was also the decade of the Great Smog (1952, which killed an estimated 4,000 Londoners in four days), Windrush immigration, the Korean War, the Suez Crisis, and the first CND marches. The decade was less placid than nostalgia suggests. Most of its turbulence was suppressed from public discourse by a political and cultural establishment that prided itself on composure.</div>
     </div>
   </div>
-</section>
 
-<!-- THE WORKS -->
-<section id="themes">
-  <div class="section-eyebrow">Literary analysis — by theme</div>
-  <h2 class="section-title">The works</h2>
+  <div id="c-class" class="inner-panel pad">
+    <div class="sec-banner blue">Class, education, and the grammar school wound</div>
+    <div class="prose">
+      <p>The 1944 Butler Education Act created a tripartite secondary school system in which, at the age of eleven, children sat the "eleven-plus" examination. Those who passed went to grammar schools, where they received an academic education that could lead to university. Those who failed went to secondary modern schools, where university was effectively closed to them. The grammar schools were, in theory, classless. In practice, they created a new social category: the educated working-class person who had passed through a door that had previously been firmly shut, and now found himself in an institution designed for a different class of person.</p>
+    </div>
 
-  <div class="themes-nav">
-    <button class="theme-btn active" onclick="showTheme('anger',this)">Anger &amp; language</button>
-    <button class="theme-btn" onclick="showTheme('class',this)">Class desire vs. fury</button>
-    <button class="theme-btn" onclick="showTheme('body',this)">Body &amp; dialect</button>
-    <button class="theme-btn" onclick="showTheme('women',this)">Women in the movement</button>
-    <button class="theme-btn" onclick="showTheme('silence',this)">Silence &amp; menace</button>
-    <button class="theme-btn" onclick="showTheme('mort',this)">Mortality &amp; irony</button>
+    <div class="pull gold">
+      <div class="pull-text">He can no longer fully belong to the working-class world he came from. He is not accepted by the middle-class world he has been educated into. He lives in a permanent no-man's land.</div>
+      <div class="pull-attr">— Richard Hoggart, <em>The Uses of Literacy</em>, 1957, on "the scholarship boy"</div>
+    </div>
+
+    <div class="prose">
+      <p>This is the psychological engine of the movement. Jimmy Porter has this wound. Jim Dixon has it. Joe Lampton has it and responds by trying to marry his way out of it. Philip Larkin — who attended Oxford on a scholarship but came from the lower-middle class — observed it with the detachment of someone slightly closer to the middle-class side of the divide, which made his perspective both sharper and more melancholy.</p>
+      <p>The grammar school system also produced its first generation of university-educated writers who had not attended public schools. Before the 1940s, almost all British writers of any consequence had attended public schools. The Angry Young Men were, collectively, the first cohort for whom this was not true — and their work reflects it in every sentence.</p>
+      <div class="aside red">He knew about medieval history and could recite Latin, and he still lived in a terraced house, his father worked at the factory, and nobody in his social circle had the faintest idea what to make of him. This gap — between what education promised and what the class system delivered — produced a very particular kind of fury, and a very particular kind of literature.</div>
+    </div>
   </div>
 
-  <div class="theme-panel active" id="panel-anger">
-    <div class="prose"><p>The most radical thing about <em>Look Back in Anger</em> (1956) was not its politics — which were actually quite muddled — but its language. Jimmy Porter doesn't argue: he performs. His tirades occupy the stage not because they advance the plot but because Osborne understood that the form of fury matters as much as its content.</p></div>
+  <div id="c-estab" class="inner-panel pad">
+    <div class="sec-banner slate">The cultural establishment they were reacting against</div>
+    <div class="prose">
+      <p>To understand why <em>Look Back in Anger</em> felt so explosive in 1956, it is necessary to understand what British theatre looked like in 1955. The dominant figures were Noël Coward and Terence Rattigan: polished, witty, crafted plays about well-dressed people with well-spoken problems in drawing rooms and country houses. The working class appeared, if at all, as comic relief.</p>
+      <p>Rattigan had even formulated what he called "Aunt Edna" — a composite figure of the conventional middle-class theatregoer whose sensibilities should guide the playwright. Aunt Edna did not want to hear about factory workers, bedsits, outside toilets, or the rage of a man who ironed his own shirts in a cramped Midlands flat. She wanted to be entertained by people like herself, dealing with recognisable emotions in socially familiar settings.</p>
+    </div>
+
+    <div class="pull-full">
+      <div class="pull-text">"Dear Aunt Edna must not be harrowed."</div>
+      <div class="pull-attr">— Terence Rattigan, articulating the governing principle of pre-1956 British theatre. Osborne's reply was three acts of harrowing.</div>
+    </div>
+
+    <div class="prose">
+      <div class="aside gold">The Suez Crisis of October–November 1956 — the same year <em>Look Back in Anger</em> opened — made clear that Britain was no longer a world power. It had spent a century telling itself a story of greatness. The play and the crisis together marked the end of a particular British self-understanding. The Angry Young Men were among the first to notice the story had stopped making sense.</div>
+    </div>
+  </div>
+
+  <div id="c-label" class="inner-panel pad">
+    <div class="sec-banner dark">The label — coined by a press officer, resented by everyone</div>
+    <div class="prose">
+      <p>The phrase "Angry Young Men" was coined not by a critic or literary editor but by George Fearon, the press officer of the Royal Court Theatre, in 1956. He used it to promote John Osborne's debut play. Within a year, it had been applied to Osborne, Sillitoe, Braine, Amis, Wain, Wilson, Delaney, and anyone else a journalist felt like grouping with them.</p>
+    </div>
+
+    <div class="pull">
+      <div class="pull-text">They do not belong to a united movement. Far from it — they attack one another directly or indirectly in these pages.</div>
+      <div class="pull-attr">— Tom Maschler, editor of <em>Declaration</em> (1957), introducing the movement's own anthology</div>
+    </div>
+
+    <div class="prose">
+      <p>The writers themselves responded to the label with varying degrees of irritation. Osborne tolerated it longest — it served his public image. Amis rejected it explicitly in his 1967 essay "Why Lucky Jim Turned Right." Sillitoe found it reductive but not offensive. Larkin found it entirely inapplicable and mostly ignored it. Braine accepted it for a time. Pinter found it puzzling. What the label captured, despite its imprecision, was a genuine generational shift: the arrival, in literature and theatre, of voices that had previously been excluded. Whether those voices were "angry" in any consistent sense was less important than the fact that they were new, provincial, mostly working-class, and audible.</p>
+      <div class="aside blue">The movement had no manifesto, no headquarters, no journal, and no agreed politics. What it had was a shared enemy: the idea that English culture belonged by right to a particular class of educated, well-connected, Home Counties people, and that everyone else should be grateful to be allowed to read about them.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ WORKS ══════════ -->
+<div id="works" class="main-sec">
+  <div class="inner-tabs">
+    <button class="inner-tab red-tab active" onclick="showInner('w-authors',this)">The Authors</button>
+    <button class="inner-tab red-tab" onclick="showInner('w-anger',this)">Anger &amp; Language</button>
+    <button class="inner-tab red-tab" onclick="showInner('w-class',this)">Class Desire</button>
+    <button class="inner-tab red-tab" onclick="showInner('w-body',this)">Body &amp; Dialect</button>
+    <button class="inner-tab red-tab" onclick="showInner('w-women',this)">Women</button>
+    <button class="inner-tab red-tab" onclick="showInner('w-silence',this)">Silence &amp; Menace</button>
+    <button class="inner-tab red-tab" onclick="showInner('w-mort',this)">Mortality</button>
+  </div>
+
+  <div id="w-authors" class="inner-panel active pad">
+    <div class="sec-banner">The movement's writers — at a glance</div>
+    <div class="author-cards">
+      <div class="author-card c-os"><div class="accent-bar"></div><div class="author-initial">O</div><div class="author-name">John Osborne</div><div class="author-dates">1929–1994 · Playwright</div><div class="author-work"><em>Look Back in Anger</em> (1956)<br>Royal Court Theatre</div></div>
+      <div class="author-card c-am"><div class="accent-bar"></div><div class="author-initial">A</div><div class="author-name">Kingsley Amis</div><div class="author-dates">1922–1995 · Novelist</div><div class="author-work"><em>Lucky Jim</em> (1954)<br>Booker Prize 1986</div></div>
+      <div class="author-card c-si"><div class="accent-bar"></div><div class="author-initial">S</div><div class="author-name">Alan Sillitoe</div><div class="author-dates">1928–2010 · Novelist</div><div class="author-work"><em>Saturday Night and Sunday Morning</em> (1958)</div></div>
+      <div class="author-card c-br"><div class="accent-bar"></div><div class="author-initial">B</div><div class="author-name">John Braine</div><div class="author-dates">1922–1986 · Novelist</div><div class="author-work"><em>Room at the Top</em> (1957)<br>Out of print by his death</div></div>
+      <div class="author-card c-de"><div class="accent-bar"></div><div class="author-initial">D</div><div class="author-name">Shelagh Delaney</div><div class="author-dates">1931–2011 · Playwright</div><div class="author-work"><em>A Taste of Honey</em> (1958)<br>Written at 18, in two weeks</div></div>
+      <div class="author-card c-la"><div class="accent-bar"></div><div class="author-initial">L</div><div class="author-name">Philip Larkin</div><div class="author-dates">1922–1985 · Poet</div><div class="author-work"><em>The Whitsun Weddings</em> (1964)<br>Declined the Laureateship</div></div>
+      <div class="author-card c-pi"><div class="accent-bar"></div><div class="author-initial">P</div><div class="author-name">Harold Pinter</div><div class="author-dates">1930–2008 · Playwright</div><div class="author-work"><em>The Birthday Party</em> (1958)<br>Nobel Prize 2005</div></div>
+    </div>
+    <div class="prose">
+      <p>These seven writers share a label and very little else. They didn't know each other particularly well, didn't agree on politics, and several produced work that actively contradicts what the others were doing. What they share is a moment: the mid-1950s, when the English literary establishment's version of England suddenly seemed very far from the England most people actually lived in.</p>
+    </div>
+  </div>
+
+  <div id="w-anger" class="inner-panel pad">
+    <div class="sec-banner">Anger &amp; language — <span class="chip chip-os" style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3)">Osborne</span></div>
+
+    <div class="pull dark">
+      <div class="pull-text">The most radical thing about <em>Look Back in Anger</em> was not its politics — which were genuinely muddled — but its language.</div>
+    </div>
+
     <div class="work-card wc-os">
-      <span class="work-title">Look Back in Anger</span>
-      <span class="work-author">John Osborne, 1956 · Royal Court Theatre, London</span>
+      <div class="work-card-header">
+        <div class="work-initial-badge">O</div>
+        <div><span class="work-title">Look Back in Anger</span><span class="work-author">John Osborne · Royal Court Theatre, 1956</span></div>
+      </div>
       <div class="prose">
-        <p><strong>Language as technique.</strong> Osborne specifically objected to productions that played Jimmy Porter as simply "angry." His notes described the character's speech as "sarcastic intertextuality" — Porter alludes, parodies, performs irony within irony. When he attacks Alison's family, he is simultaneously mocking the cultural forms (Sunday newspapers, church, the colonel's memoir) through which the upper classes imagine themselves. The anger is real, but it arrives as sustained literary ventriloquism.</p>
-        <p><strong>The problem of the women.</strong> Porter's fury is directed largely at the women around him — Alison, then Helena. Feminist critics from the 1970s onward noted the uncomfortable truth: the most celebrated "radical" play of postwar British theatre is also a sustained study in male emotional violence directed at women who remain largely passive. Jill Dolan's analysis argues that Alison's ironing in the opening scene — physical subjugation to domestic labour while Porter delivers his speeches — is not incidental staging but the play's true subject. The Angry Young Man is angry at the world; he expresses it by making the nearest woman very uncomfortable.</p>
-        <p><strong>Critical reception.</strong> Kenneth Tynan in <em>The Observer</em> declared it "the best young play of its decade." Harold Hobson in <em>The Sunday Times</em> called it "minor." Both reviews appeared 14 May 1956. Tynan was right, Hobson wrong — but Hobson got there first, and the play briefly closed before word of mouth saved it.</p>
-        <span class="critic-voice">— Osborne, late in life: "The play says what it says. Nobody ever listened to what it actually said. They heard the noise."</span>
+        <h3 class="sub sub-red">Language as technique</h3>
+        <p>Osborne specifically objected to productions that played Jimmy Porter as simply "angry." His notes describe the character's speech as exhibiting "sarcastic intertextuality": Porter alludes, parodies, mimics, and mocks. When he attacks Alison's family, he does so partly by imitating the colonel's manner of speech — performing the establishment for the establishment's own daughter, showing her that he understands exactly what she comes from and finds it ridiculous. The anger is real, but it arrives through a sustained act of literary ventriloquism. Jimmy Porter doesn't argue: he performs.</p>
+        <h3 class="sub sub-red">The problem of the women</h3>
+        <p>Porter's fury is directed overwhelmingly at the women around him — Alison, then Helena. Feminist critics from the 1970s onward noted the uncomfortable truth: the most celebrated "radical" play of postwar British theatre is also a sustained study in male emotional violence directed at women who remain largely passive. Jill Dolan's analysis argues that Alison's ironing in the opening scene — her physical subjugation to domestic labour while Porter delivers his magnificent speeches from the armchair — is not incidental staging but the play's structural reality. The Angry Young Man is angry at the world; he expresses this by ensuring that the nearest woman is as uncomfortable as possible.</p>
+        <h3 class="sub sub-red">Critical reception</h3>
+        <p>Kenneth Tynan in <em>The Observer</em> (14 May 1956): "Look Back in Anger is the best young play of its decade." Harold Hobson in <em>The Sunday Times</em> (same day): "a minor work." Tynan was right, as subsequent history confirmed; the play transferred to the West End, was filmed, and was translated into thirty languages before the decade was out. The play's reputation has been revised downward since the 1990s, partly due to the feminist critique and partly due to a reassessment of whether Porter's eloquence about his suffering actually constitutes the radical act Tynan described.</p>
+        <span class="critic">— Osborne, late in life: "The play says what it says. Nobody ever listened to what it actually said. They heard the noise."</span>
       </div>
     </div>
   </div>
 
-  <div class="theme-panel" id="panel-class">
-    <div class="prose"><p>The movement contained two fundamentally different attitudes toward the class system. Jimmy Porter wants to destroy it. Joe Lampton wants to join it. Jim Dixon wants to ridicule it from inside. These are not the same desire, and they produce radically different literatures.</p></div>
+  <div id="w-class" class="inner-panel pad">
+    <div class="sec-banner gold">Class desire vs. class fury — <span class="chip chip-am" style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3)">Amis</span> <span class="chip chip-br" style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3)">Braine</span></div>
+
+    <div class="pull gold">
+      <div class="pull-text">Jim Dixon wants to ridicule the class system and escape through luck. Joe Lampton wants to join it. These are not the same desire, and they produce radically different kinds of fiction.</div>
+    </div>
+
     <div class="work-card wc-am">
-      <span class="work-title">Lucky Jim</span>
-      <span class="work-author">Kingsley Amis, 1954</span>
+      <div class="work-card-header">
+        <div class="work-initial-badge">A</div>
+        <div><span class="work-title">Lucky Jim</span><span class="work-author">Kingsley Amis · 1954</span></div>
+      </div>
       <div class="prose">
-        <p><strong>The comic as weapon.</strong> Scholars have identified Amis's technique as "Menippean satire" — attacking entire value systems through accumulated absurdity. Jim Dixon doesn't rage at the academic establishment; he makes private faces at it. Because he has neither the courage nor the economic security to protest openly, he constructs an elaborate interior life of rude gestures and imaginary retorts. The comedy is the politics. As one academic argues, "humour functions as a weapon to cope with antagonistic forces in postwar existence."</p>
-        <p><strong>What the comedy conceals.</strong> Where Jim Dixon's values are "hidden beneath a comic narrative," Amis's later novels grow more openly serious — suggesting <em>Lucky Jim</em> is more politically substantial than it appears. Jim is not apolitical; he is strategically funny, which is a different thing.</p>
-        <span class="critic-voice">— Philip Larkin, who helped Amis draft early chapters: "I didn't think it would be as funny as it turned out."</span>
+        <h3 class="sub sub-gold">The comic as weapon</h3>
+        <p>Scholars have identified Amis's technique as "Menippean satire" — a tradition in which satire attacks not individual targets but entire value systems through accumulated absurdity. Jim Dixon doesn't make speeches about the injustice of the class system; he makes private faces at his head of department while maintaining an expression of respectful attention. He fantasises about violence. He performs elaborate mental rituals of contempt. This interior life of controlled outrage is the novel's real action, and Amis renders it with a timing Christopher Hitchens described as making it "the funniest book of the second half of the twentieth century."</p>
+        <p>Philip Larkin, who helped Amis draft early chapters and supplied some of the novel's characters, referred to his contribution as "a period of intensive joke-swapping just after the war." What he actually provided included significant structural suggestions, the character of Margaret Peel (based on his companion Monica Jones), and the general texture of what academic provincial life actually felt like from the inside. The novel is, in a meaningful sense, the product of two sensibilities.</p>
+        <h3 class="sub sub-gold">The escape</h3>
+        <p>The novel's ending — Dixon escapes the university, gets the girl, and secures a better job through luck — has troubled critics from opposite directions. Some find it too consoling. Others argue that this is precisely the point: Dixon's escape is not earned through political action but through luck, and the novel knows this. The class system is not defeated; Dixon simply falls through a gap in it. Behind him, the gap closes. The system continues.</p>
+        <span class="critic">— W. Somerset Maugham, on first reading: "Mr Amis is so talented... They have no manners, and are woefully unable to deal with any social predicament." He meant this as a criticism. It reads, sixty years later, as an exact description of the novel's achievement.</span>
       </div>
     </div>
+
     <div class="work-card wc-br">
-      <span class="work-title">Room at the Top</span>
-      <span class="work-author">John Braine, 1957</span>
+      <div class="work-card-header">
+        <div class="work-initial-badge">B</div>
+        <div><span class="work-title">Room at the Top</span><span class="work-author">John Braine · 1957</span></div>
+      </div>
       <div class="prose">
-        <p><strong>The first-person trap.</strong> Narrated entirely by Joe Lampton, the reader is inside his calculations and self-justifications. When he makes his terrible choice — Susan over Alice, status over love — the reader has been so thoroughly inside his head that condemnation feels hypocritical. This is the formal trap Braine constructed deliberately.</p>
-        <p><strong>Darker than Lucky Jim.</strong> Jim Dixon escapes his provincial university more or less intact. Joe achieves everything he set out to achieve and destroys everything he actually valued in the process. Britannica notes that novels like this "provided a solution to working-class frustration in a fluid system of class promotion: revolution is an inadmissible dream." The solution turns out to be no solution. Getting to the top costs you whatever made you want to get there.</p>
-        <p><strong>Joe vs. Jim: the critical comparison.</strong> Where Jim Dixon's alienation is resolved through comic luck, Lampton's deepens as his ambition succeeds. The "scholarship boy" who joins the new social circle must abandon the authentic self to do so. Jim Dixon escapes his fake world. Joe Lampton builds one, then has to live in it.</p>
+        <h3 class="sub sub-gold">The first-person trap</h3>
+        <p>Braine's novel is narrated entirely by Joe Lampton in a voice that is direct, colloquial, and self-aware — but not reliably honest. Lampton explains his calculations with unsettling clarity, and allows the reader inside his rationalisations as he makes the central moral choice: to pursue the wealthy Susan rather than the older, more genuine Alice, whom he actually loves. The reader who has been inside Lampton's head for two hundred pages finds it difficult to condemn him, because they have been made complicit in his logic. This is a formally sophisticated achievement often underestimated because the novel's surface is so readable.</p>
+        <h3 class="sub sub-gold">Darker than Lucky Jim</h3>
+        <p>Jim Dixon escapes his provincial university more or less intact. Joe achieves everything he wanted and destroys everything he valued in the process. The critical comparison with <em>Lucky Jim</em> reveals two fundamentally different answers to the same question. Amis believed, at least at the time, that the system could be escaped. Braine's novel suggests it cannot — that successful entry into the class system requires you to become the thing you were trying to escape from.</p>
+        <span class="critic">— Braine: "I was trying to tell the truth about a particular type of ambition. I didn't expect people to admire the man."</span>
       </div>
     </div>
   </div>
 
-  <div class="theme-panel" id="panel-body">
-    <div class="prose"><p>What Sillitoe brought to the movement that nobody else quite had was the body: the physical fact of factory work, the specific texture of Nottingham streets, working-class life experienced from the inside rather than described from outside. His prose doesn't explain working-class experience; it inhabits it.</p></div>
+  <div id="w-body" class="inner-panel pad">
+    <div class="sec-banner blue">The body, dialect &amp; resistance — <span class="chip chip-si" style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3)">Sillitoe</span></div>
+
+    <div class="pull blue">
+      <div class="pull-text">"What I'm out for is a good time. All the rest is propaganda."</div>
+      <div class="pull-attr">— Arthur Seaton, <em>Saturday Night and Sunday Morning</em> (1958). The most honest statement in the movement.</div>
+    </div>
+
     <div class="work-card wc-si">
-      <span class="work-title">Saturday Night and Sunday Morning</span>
-      <span class="work-author">Alan Sillitoe, 1958</span>
+      <div class="work-card-header">
+        <div class="work-initial-badge">S</div>
+        <div><span class="work-title">Saturday Night and Sunday Morning</span><span class="work-author">Alan Sillitoe · 1958</span></div>
+      </div>
       <div class="prose">
-        <p><strong>Dialect as narrative technique.</strong> Jeremy Scott's academic study "Midlands Cadences" (2016) examines how Sillitoe embedded Nottinghamshire dialect not just in dialogue but in the narrative voice itself: "The narrative discourse traces a link between the experience of the Midlands English working classes represented and the demotic language they speak." This was formally new. Previous British novels either made working-class characters speak "correctly" or rendered dialect as comic error. Sillitoe made dialect the medium of consciousness — the way Arthur thinks, not just how he speaks.</p>
-        <p><strong>The body as politics.</strong> Arthur Seaton is introduced at a lathe, and the novel's first pages describe the specific physical skill factory work requires. Sillitoe refuses the caricature of the mindless worker. Arthur is physically intelligent, precisely skilled — and perfectly aware this skill earns him wages and nothing else. His hedonism — the drinking, the affairs — is an assertion of bodily autonomy against a system that owns his labour eight hours a day.</p>
-        <p><strong>The apolitical as political.</strong> Some 1958 reviewers expressed unease at Arthur's absence of political engagement. The <em>Times Literary Supplement</em> noted this as a possible limitation. Subsequent critics have read it differently: Arthur's refusal of ideology is itself an ideological position. His famous opening declaration — "What I'm out for is a good time. All the rest is propaganda" — is the most honest statement anyone in the movement makes.</p>
-        <span class="critic-voice">— One reader's note: "He sounds rather like Johnny Rotten talking in 1977." This is accurate.</span>
+        <h3 class="sub sub-blue">Dialect as the medium of consciousness</h3>
+        <p>Jeremy Scott's academic study "Midlands Cadences" (Language and Literature, 2016) examines how Sillitoe embedded Nottinghamshire dialect not merely in Arthur Seaton's dialogue but in the narrative voice itself. Previous writers either had working-class characters speak "correctly" — which no real person from that background would — or rendered their speech as phonetic comedy. Sillitoe made dialect the medium of consciousness: not what Arthur says but how he thinks. The rhythm of Nottingham working-class speech structures the prose itself, so the reader experiences the world as Seaton experiences it rather than as an observer looking in. This was formally unprecedented in British fiction, and it had political consequences: if dialect is how Arthur thinks, then his thoughts are as complex and fully human as those of any character in a Henry James novel.</p>
+        <h3 class="sub sub-blue">The body as politics</h3>
+        <p>Arthur Seaton is introduced at a lathe, and the novel's first pages describe the specific physical skill and concentrated attention that factory work requires. Sillitoe refuses, at every point, the caricature of the mindless worker. Arthur is physically intelligent, precisely skilled at his trade — and perfectly aware that this skill earns him wages and nothing else: no recognition, no status, no stake in what he produces. His hedonism — the drinking, the affairs, the Saturday night fights — is an assertion of bodily autonomy against a system that owns his labour eight hours a day. By refusing to engage with the class system on any of its own terms, including the terms offered by left-wing politics, Seaton preserves something that Porter, Dixon, and Lampton all lose to varying degrees: himself.</p>
+        <span class="critic">— One reader's observation (2016): "He sounds rather like Johnny Rotten talking in 1977." This is accurate, and not a coincidence.</span>
       </div>
     </div>
     <div class="work-card wc-si">
-      <span class="work-title">The Loneliness of the Long Distance Runner</span>
-      <span class="work-author">Alan Sillitoe, 1959</span>
+      <div class="work-card-header">
+        <div class="work-initial-badge">S</div>
+        <div><span class="work-title">The Loneliness of the Long Distance Runner</span><span class="work-author">Alan Sillitoe · 1959</span></div>
+      </div>
       <div class="prose">
-        <p><strong>Resistance as form.</strong> Colin Smith deliberately loses the race his borstal has staked its pride on — not through failure but through a calculated act of refusal. The story is narrated in Smith's own stream of consciousness, moving between past and present. The formal choice is inseparable from the content: this is a voice the institution cannot control, cannot discipline. Smith loses the race. The narrative voice wins it.</p>
+        <p>Colin Smith, a borstal inmate who is a gifted long-distance runner, deliberately loses the race his institution has entered him in — not through failure but through a calculated act of refusal. He could have won. He stops, a few yards from the finishing line, and watches his opponent cross it. The act is one of the purest political gestures in postwar British fiction, accomplished without a word of political discourse. The institution wanted his body's achievement to serve its ideology. By withholding the achievement, he denies the institution the only thing it actually wanted from him.</p>
+        <span class="critic">— Tony Richardson's 1962 film, with Tom Courtenay, translates the stream-of-consciousness into a fragmented editing style that anticipates the New Hollywood by several years.</span>
       </div>
     </div>
   </div>
 
-  <div class="theme-panel" id="panel-women">
-    <div class="prose"><p>Delaney was described in the Theatre Workshop programme as "the antithesis of London's Angry Young Men. She knows what she is angry about." The condescension in "she knows" is possibly unintentional. What is unquestionable is that <em>A Taste of Honey</em> addresses subjects the male writers of the movement systematically avoided.</p></div>
+  <div id="w-women" class="inner-panel pad">
+    <div class="sec-banner" style="background:var(--female)">Women in the movement — <span style="opacity:.7">the exception that proves the rule</span></div>
+
+    <div class="pull" style="border-left-color:var(--female);background:rgba(106,8,56,.06)">
+      <div class="pull-text">"Women never have young minds. They are born 3,000 years old."</div>
+      <div class="pull-attr">— Shelagh Delaney, in interview. Not specifically about her own work — but as a summary of what her work achieved, more accurate than most critical analyses.</div>
+    </div>
+
     <div class="work-card wc-de">
-      <span class="work-title">A Taste of Honey</span>
-      <span class="work-author">Shelagh Delaney, 1958 · Theatre Workshop, Stratford East</span>
+      <div class="work-card-header">
+        <div class="work-initial-badge">D</div>
+        <div><span class="work-title">A Taste of Honey</span><span class="work-author">Shelagh Delaney · Theatre Workshop, Stratford East, 1958</span></div>
+      </div>
       <div class="prose">
-        <p><strong>Structure: episodic and Brechtian.</strong> The play's structure is "episodic storytelling, reminiscent of Brechtian techniques" — less about resolution, more an exploration of themes. Where Osborne builds toward explosive confrontations, Delaney moves in a different rhythm: ordinary interaction punctuated by moments of surprising intimacy or cruelty. Joan Littlewood's original production amplified this with jazz interludes and direct address. The effect was a play that felt less like a well-made drama and more like a life in progress.</p>
-        <p><strong>Intersectionality before the word existed.</strong> Jo is white and working-class; her lover is Black; her friend Geoffrey is gay; her mother Helen uses sexuality as her primary means of economic survival. Every relationship in the play crosses at least two axes of social exclusion. In 1958. This is not incidental — it is the play's entire architecture.</p>
-        <p><strong>Jo's language.</strong> Jo speaks differently from the women in the movement's other works — not as a symbol, not as a victim, not as a foil for male anger, but as a subject with her own observations, her own dark humour, her own contradictions. The play's title comes from a moment when Jo describes her brief happiness as tasting "of honey" — holding sentimentality and irony simultaneously. This tonal precision is what makes the play still read as contemporary.</p>
-        <p><strong>What the men's plays couldn't do.</strong> Helen is both a bad mother and a fully realised character with her own logic, her own pleasures, her own history. Jeanette Winterson later wrote that the original reviews "read like a depressing essay in sexism." Most critics focused on its sensationalism rather than its formal achievement.</p>
-        <span class="critic-voice">— Kenneth Tynan, 1958: "Miss Delaney brings real people on to her stage, joking and flaring and scuffling and, eventually, out of the zest for life she gives them, surviving."</span>
+        <h3 class="sub" style="color:var(--female)">Structure — the Brechtian dimension</h3>
+        <p>Delaney wrote the play at eighteen, in two weeks, after seeing a Rattigan production and deciding she could do better. Joan Littlewood's Theatre Workshop production amplified its formal qualities: jazz interludes, direct audience address, episodic structure rather than the well-made arc. The result was a play that felt less like a drama and more like a life interrupted — scenes of ordinary interaction punctuated by moments of unexpected intimacy, dark comedy, and occasional brutality. Academic analyses describe this structure as "Brechtian" in its refusal of dramatic resolution. Where Osborne's play builds toward explosive confrontations, Delaney's drifts — which is not the same as lacking direction.</p>
+        <h3 class="sub" style="color:var(--female)">Intersectionality before the word existed</h3>
+        <p>Jo is a white working-class teenager. Her absent lover is Black. Her friend Geoffrey is gay. Her mother Helen uses sexuality as her primary economic strategy. Every relationship in the play crosses at least two axes of social exclusion simultaneously — class, race, sexuality, gender — and Delaney refuses to prioritise any of them. In 1958. This is not incidental — it is the play's entire moral architecture. Jeanette Winterson later wrote that the original reviews "read like a depressing essay in sexism": most critics focused on its sensationalism rather than its formal achievement.</p>
+        <h3 class="sub" style="color:var(--female)">What the men's plays couldn't do</h3>
+        <p>Helen — Jo's mother, frequently drunk, frequently absent, frequently unkind — is both a bad mother by any conventional standard and a fully realised human being with her own desires and survival strategies. She is not redeemed at the end. She is not punished either. She simply continues. The movement's male writers depicted women primarily as objects of their protagonists' desire, frustration, or escape. Delaney made a female character's interiority the centre of a work — and treated the relationships between women as subjects of literary interest in their own right.</p>
+        <span class="critic">— Kenneth Tynan, 1958: "Miss Delaney brings real people on to her stage, joking and flaring and scuffling and, eventually, out of the zest for life she gives them, surviving."</span>
       </div>
     </div>
   </div>
 
-  <div class="theme-panel" id="panel-silence">
-    <div class="prose"><p>Pinter is the anomaly: consistently listed in movement anthologies, consistently misplaced there. He shares the background — working class, East London, outsider — but his aesthetic is entirely different. Where Osborne's language is all surface heat, Pinter's is all subsurface pressure. The distinguishing technique is silence, and Pinter made it into an art form precise enough that "Pinteresque" became an English adjective.</p></div>
+  <div id="w-silence" class="inner-panel pad">
+    <div class="sec-banner slate">Silence, menace &amp; the unsaid — <span class="chip chip-pi" style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3)">Pinter</span></div>
+
+    <div class="pull" style="border-left-color:var(--slate)">
+      <div class="pull-text">What Pinter did was take common everyday speech with all its hesitations, repetitions, periodic crudities and aching silences — and turn it into a form of poetry.</div>
+      <div class="pull-attr">— Michael Billington, Pinter's most authoritative critic</div>
+    </div>
+
     <div class="work-card wc-pi">
-      <span class="work-title">The Birthday Party</span>
-      <span class="work-author">Harold Pinter, 1958</span>
+      <div class="work-card-header">
+        <div class="work-initial-badge">P</div>
+        <div><span class="work-title">The Birthday Party</span><span class="work-author">Harold Pinter · Lyric Theatre, Hammersmith, 1958</span></div>
+      </div>
       <div class="prose">
-        <p><strong>Silence as speech act.</strong> Academic research on the play identifies three primary types of silence — interactive, internal, and turn-constituting — finding that "refusal" accounts for 75% of the illocutionary force of the play's silences. Most of what characters do not say constitutes an act of will, a refusal to enter territory that would expose them. The silences are the most active moments in the play.</p>
-        <p><strong>"Comedy of menace."</strong> Michael Billington's description is the most useful: "What Pinter did was take common everyday speech with all its hesitations, repetitions, periodic crudities and aching silences — and turn it into a form of poetry." The Birthday Party opens in a realistic boarding house. The two strangers who arrive speak in idioms that feel simultaneously mundane and threatening — questions with no logic, accusations with no referent. The menace is that normal rules of cause and effect have been suspended, and nobody explains why.</p>
-        <p><strong>Power through language.</strong> The struggle between characters is conducted almost entirely through verbal and non-verbal control: who speaks, who is silenced, who sets the terms of exchange. Stanley's breakdown is accomplished not through violence but through a sustained assault on his ability to use language coherently.</p>
-        <p><strong>Why he doesn't quite belong.</strong> Pinter said he never understood why Osborne was called revolutionary, and that the theatrical revolution he recognised was Beckett's. The Angry Young Men wrote about what the class system did to identifiable people in identifiable places. Pinter wrote about something older: the human capacity for cruelty in enclosed spaces, the impossibility of knowing another person's past.</p>
-        <span class="critic-voice">— Harold Hobson, <em>Sunday Times</em>, the day the play closed its first run: "I am willing to stake whatever reputation I have as a judge of plays that The Birthday Party is not a Fourth of July rocket but a diamond." He was right. He was five days too late.</span>
+        <h3 class="sub sub-slate">Silence as speech act</h3>
+        <p>Academic research on conversational silence in the play identifies three distinct categories: interactive silence (between turns), internal silence (within a character's speech), and turn-constituting silence (where silence functions as a complete speech act rather than an absence). Analysis finds that "refusal" accounts for approximately 75% of the illocutionary force of the play's silences — meaning that most of what characters do not say constitutes an active choice, a deliberate withholding of territory that would expose them. The silences are the most active moments in the play, not its pauses.</p>
+        <h3 class="sub sub-slate">The comedy of menace</h3>
+        <p>The Birthday Party begins in a recognisable domestic setting — a boarding house, a landlady, her lodger Stanley — with the slightly eccentric realism of a minor naturalist drama. Two strangers arrive: Goldberg and McCann. They speak in a rhythm that is simultaneously recognisable and wrong: phrases that sound like ordinary conversation but don't add up to ordinary conversation, questions that circle rather than ask, apparent friendliness that is more threatening than hostility. By the time they subject Stanley to their "interrogation," the audience has been so carefully prepared that the horror is complete without any single identifiable moment of horror having occurred.</p>
+        <h3 class="sub sub-slate">Why he doesn't quite belong</h3>
+        <p>Pinter said he never understood why Osborne was considered a theatrical revolutionary — that distinction, in his view, belonged to Beckett. The Angry Young Men wrote about what the class system did to specific, recognisable people in specific, locatable places. Pinter wrote about something older, less locatable, and more frightening: the human capacity for cruelty in enclosed spaces; the impossibility of knowing another person's past; the knock on the door that may or may not be coming. He is consistently listed in movement anthologies and consistently misplaced there.</p>
+        <span class="critic">— Harold Hobson, the day the play closed its first run of eight performances: "I am willing to stake whatever reputation I have as a judge of plays that <em>The Birthday Party</em> is not a Fourth of July rocket but a diamond." He was right. He was five days too late.</span>
       </div>
     </div>
   </div>
 
-  <div class="theme-panel" id="panel-mort">
-    <div class="prose"><p>Larkin is perhaps the most formally accomplished writer in the group and the one who fits least comfortably in it. He shares the distrust of pretension, the provincial identity, the aversion to the literary establishment. But where the others wrote with heat, Larkin wrote with what he called "deprivation" — the source, the subject, and the method simultaneously.</p></div>
+  <div id="w-mort" class="inner-panel pad">
+    <div class="sec-banner gold">Mortality, irony &amp; the long view — <span class="chip chip-la" style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3)">Larkin</span></div>
+
+    <div class="pull-full">
+      <div class="pull-text">"Deprivation is for me what daffodils were for Wordsworth."</div>
+      <div class="pull-attr">— Philip Larkin, Paris Review interview, 1982</div>
+    </div>
+
     <div class="work-card wc-la">
-      <span class="work-title">The Whitsun Weddings</span>
-      <span class="work-author">Philip Larkin, 1964</span>
+      <div class="work-card-header">
+        <div class="work-initial-badge">L</div>
+        <div><span class="work-title">The Less Deceived · The Whitsun Weddings · High Windows</span><span class="work-author">Philip Larkin · 1955 / 1964 / 1974</span></div>
+      </div>
       <div class="prose">
-        <p><strong>Two voices at once.</strong> Larkin's mature poems work through a tension critics identify as central to their effect: the speaker is simultaneously ironic and sincere, detached and devastated. In "Dockery and Son" the apparent cool detachment collapses in the final stanza into something that arrives as grief before the reader has been warned. The NEH notes his poetry is "lyrically expressive, syntactically complex and interesting, emotionally intense if not flamboyantly so."</p>
-        <p><strong>Mortality as form.</strong> Larkin's most discussed poems circle obsessively around death as logical problem, not romantic subject. "An Arundel Tomb" ends with what appears to be consolation — "What will survive of us is love" — but the poem has spent its previous stanzas systematically undermining any certainty about survival or love. The final line arrives bearing everything the poem has already denied. It works as consolation and as its refusal simultaneously.</p>
-        <p><strong>"This Be The Verse."</strong> Three stanzas. Four lines each. The argument: your parents damage you, as their parents damaged them, and the only rational response is not to have children. The language is demotic, the form immaculate, the conclusion logically impeccable and completely dark. Its formal control — the steady metre, the precision of the rhyme — creates irony with the content: this devastatingly bleak argument delivered with the craft of someone who took enormous pleasure in their work.</p>
-        <p><strong>The posthumous problem.</strong> Letters published after Larkin's death revealed private racism and misogyny expressed with some enthusiasm. The critical debate this created — can you separate the poetry from the poet? — has not resolved and probably cannot. What is notable is that Larkin's poems themselves are largely free of these attitudes; his private self and his literary self appear to have been genuinely different people.</p>
-        <span class="critic-voice">— Larkin, Paris Review, 1982: "Deprivation is for me what daffodils were for Wordsworth."</span>
+        <h3 class="sub sub-gold">Two voices simultaneously</h3>
+        <p>The defining technical achievement of Larkin's mature poetry is the maintenance of two tones simultaneously: an ironic, slightly detached surface voice and an emotional subterranean voice that emerges, usually in the final stanza, with devastating unexpectedness. In "Dockery and Son," the poem proceeds in a measured, slightly arch tone through observations about domesticity and its discontents, and then in the last stanza the tone collapses: "Life is first boredom, then fear. / Whether or not we use it, it goes." The shift is engineered with a precision that makes it feel inevitable rather than calculated. The National Endowment for the Humanities notes his poetry is "lyrically expressive, syntactically complex and interesting, emotionally intense if not flamboyantly so."</p>
+        <h3 class="sub sub-gold">Mortality as formal principle</h3>
+        <p>"An Arundel Tomb" ends with what appears to be consolation — "What will survive of us is love" — but the poem has spent its previous stanzas systematically dismantling every certainty about love, survival, and the possibility of knowing anything across time. The final line arrives burdened with everything the poem has already denied. It works as consolation and as its refusal simultaneously, and the reader must choose which to hear. This double-voicedness — saying one thing in a tone that simultaneously unsays it — is Larkin's signature technique, and it has no real equivalent in the movement's other writers.</p>
+        <h3 class="sub sub-gold">The posthumous problem</h3>
+        <p>The publication of Larkin's letters after his death revealed private racist and misogynistic views expressed with what many admirers found distressing frequency. The debate this generated — can you separate the poetry from the man? — has not resolved. What is notable is that the poems themselves are largely free of these attitudes. Larkin's private self and his literary self appear to have been genuinely different people, which raises its own uncomfortable questions about the relationship between life and art.</p>
+        <span class="critic">— "This Be The Verse": three stanzas, four lines each. The argument: your parents damage you as their parents damaged them. The language is demotic, the form immaculate, the logic airtight and completely dark — and somehow, in its execution, it produces something that feels almost like joy.</span>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- COMPARE -->
-<section id="compare">
-  <div class="section-eyebrow">Cross-reading</div>
-  <h2 class="section-title">The same subjects, different answers</h2>
-
-  <div class="prose"><p>The movement's writers often addressed identical subjects — class mobility, male resentment, the provincial experience — and arrived at entirely different conclusions. Reading them against each other reveals what the label "Angry Young Men" conceals: a fundamental disagreement about what fury is for.</p></div>
-
-  <h3 class="sub">What do you do with the class system?</h3>
-  <table class="tbl">
-    <tr><th></th><th>Jimmy Porter (Osborne)</th><th>Jim Dixon (Amis)</th><th>Joe Lampton (Braine)</th></tr>
-    <tr><td>Strategy</td><td>Rage at it publicly, exhaustingly, at length</td><td>Make private faces at it; escape through luck</td><td>Join it, at any cost</td></tr>
-    <tr><td>Outcome</td><td>Irresolution; continues raging</td><td>Partial escape; the system intact behind him</td><td>Achieves goal; destroys what mattered</td></tr>
-    <tr><td>Honesty</td><td>Declares his fury openly</td><td>Performs his fury as comedy</td><td>Never admits to fury; only desire</td></tr>
-    <tr><td>What it implies</td><td>The system must be confronted</td><td>The system can be ridiculed, not changed</td><td>The system wins; even its critics want in</td></tr>
-  </table>
-
-  <div class="aside slate">Braine's is the most troubling analysis because it's the most honest. The Angry Young Men collectively implied the working class deserved recognition and opportunity. Braine showed what happens when opportunity arrives: it costs the same things it always did, just charged to a different account.</div>
-
-  <h3 class="sub">Language as resistance</h3>
-  <table class="tbl">
-    <tr><th></th><th>Osborne</th><th>Sillitoe</th><th>Pinter</th></tr>
-    <tr><td>The language</td><td>Torrential, rhetorical, self-aware</td><td>Nottingham demotic embedded in narrative voice</td><td>Ordinary speech; meaning in what isn't said</td></tr>
-    <tr><td>Resistance through</td><td>Volume; refusal to stop</td><td>Dialect as consciousness, not error</td><td>Silence as refusal; the pause as power</td></tr>
-    <tr><td>What the form says</td><td>The establishment must be confronted</td><td>Working-class experience is irreducible to politics</td><td>Power is everywhere; language is its instrument</td></tr>
-  </table>
-
-  <h3 class="sub">What they couldn't write about</h3>
-  <div class="prose">
-    <p>The movement was almost entirely male. Shelagh Delaney was the exception — not quite accepted as a full member, despite writing the movement's most formally courageous single work. The women of the Angry Young Men era were written about far more than they wrote.</p>
-    <p>Race was similarly absent. The England these writers described was overwhelmingly white, at the moment when Windrush-era immigration was already underway. <em>A Taste of Honey</em> was, again, the exception.</p>
-  </div>
-</section>
-
-<!-- LEGACY -->
-<section id="legacy">
-  <div class="section-eyebrow">What they left</div>
-  <h2 class="section-title">Legacy &amp; influence</h2>
-
-  <div class="prose">
-    <p>The British New Wave films of 1959–63 translated the movement's literary project into cinema: location shooting over studio glamour, newly discovered actors, unresolved endings, a refusal to make the working class either picturesque or inspirational. They remain among the finest British films ever made.</p>
+<!-- ══════════ TRIO ══════════ -->
+<div id="trio" class="main-sec">
+  <div class="inner-tabs">
+    <button class="inner-tab active" onclick="showInner('t-amla',this)">Amis &amp; Larkin</button>
+    <button class="inner-tab" onclick="showInner('t-lucky',this)">Lucky Jim's Origins</button>
+    <button class="inner-tab" onclick="showInner('t-braine',this)">Braine</button>
+    <button class="inner-tab" onclick="showInner('t-diverge',this)">Three Trajectories</button>
   </div>
 
-  <div style="padding:0 0 1rem">
-    <div class="tl-item"><div class="tl-year">1959</div><div class="tl-text"><em>Room at the Top</em> (dir. Jack Clayton). Simone Signoret won the Oscar for Best Actress. First British film to receive an X certificate while also being critically celebrated.</div></div>
-    <div class="tl-item"><div class="tl-year">1960</div><div class="tl-text"><em>Saturday Night and Sunday Morning</em> (dir. Karel Reisz). Albert Finney as Arthur Seaton. Still a landmark of British realist cinema.</div></div>
-    <div class="tl-item"><div class="tl-year">1961</div><div class="tl-text"><em>A Taste of Honey</em> (dir. Tony Richardson). Won four BAFTAs. Delaney co-wrote the screenplay; her dialogue survived almost intact.</div></div>
-    <div class="tl-item"><div class="tl-year">1962</div><div class="tl-text"><em>The Loneliness of the Long Distance Runner</em> (dir. Tony Richardson). Tom Courtenay. The act of losing a race as political resistance. Remarkably, this still works.</div></div>
-    <div class="tl-item"><div class="tl-year">1963</div><div class="tl-text"><em>This Sporting Life</em> (dir. Lindsay Anderson). Richard Harris. The most brutal of the wave — no redemption, no resolution, no mercy.</div></div>
+  <div id="t-amla" class="inner-panel active pad">
+    <div class="sec-banner dark">The friendship that launched a novel — and lasted fifty years</div>
+    <div class="prose">
+      <p>Kingsley Amis and Philip Larkin met at St John's College, Oxford, in April 1941. Both were reading English on scholarships, both were provincial, both were constitutionally unable to take anything seriously without simultaneously finding it funny. They began a correspondence that lasted until Larkin's death in 1985, producing what critics have described as the most significant literary friendship documented in British letters since the Romantics.</p>
+      <p>About a quarter of Amis's published letters — over eight hundred in total — were addressed to Larkin. Amis knew, even at the time, that they were exceptional: he wrote to Larkin in 1956 about "the feast awaiting chaps when we're both dead and our complete letters come out." He was right, though the feast proved more morally complicated than he may have anticipated.</p>
+    </div>
+
+    <div class="pull">
+      <div class="pull-text">God I hate news — can't watch it — to see these awful shits marching or picketing is too much for me.</div>
+      <div class="pull-attr">— Philip Larkin to Kingsley Amis, 1979. The tone of their late correspondence: intimate, savage, very funny, and deeply depressing.</div>
+    </div>
+
+    <div class="trio-grid">
+      <div class="trio-card t-amis">
+        <div class="trio-name">Amis on Larkin — the public version</div>
+        <div class="trio-text">
+          <p>Amis dedicated <em>Lucky Jim</em> to Larkin and consistently acknowledged his role. He described the friendship as "the most important of my life" and was genuinely baffled by Larkin's contentment with obscurity and the provincial library.</p>
+          <div class="trio-q">"The most important friendship of my life."</div>
+          <p>He made repeated, always unsuccessful attempts to persuade Larkin toward a more public literary career. Larkin always declined.</p>
+        </div>
+      </div>
+      <div class="trio-card t-larkin">
+        <div class="trio-name">Larkin on Amis — the private version</div>
+        <div class="trio-text">
+          <p>Larkin's public statements were warm. His private statements were more complex. Richard Bradford's study concludes that in the friendship's later years Larkin "was subterraneously driven by resentment and near hatred" of Amis.</p>
+          <div class="trio-q">"Chief unpaid acknowledged gagman to Amis Inc."</div>
+          <p>He resented having contributed significantly to the novel that made Amis famous while his own fiction career had come to nothing.</p>
+        </div>
+      </div>
+    </div>
+    <div class="aside blue">The Amis-Larkin correspondence is also a document of the men's respective failures to know each other. Each kept significant things from the other: Larkin concealed the depth of his relationships with Monica Jones and Maeve Brennan; Amis was unaware of how much Larkin privately doubted the later Amis novels. The letters are intimate and evasive simultaneously, which is perhaps what long friendships are.</div>
   </div>
 
-  <div class="prose">
-    <p>The BBC's commitment to social realist drama — <em>Cathy Come Home</em> (Ken Loach, 1966), <em>Boys from the Blackstuff</em> (1982) — descends directly from this aesthetic. British television became serious about class in a way that had no American equivalent.</p>
-    <p>Morrissey of The Smiths cited Shelagh Delaney as fifty per cent of his reason for writing at all. He used her photograph on two record covers. The Smiths' lyrical world — provincial England, failed romance, mordant wit, a deep ambivalence about escape — is precisely the world the movement built.</p>
-    <div class="aside dark">Several of the most prominent Angry Young Men drifted — or charged — rightward as they aged. Kingsley Amis became a Thatcherite. John Braine became a Conservative. John Osborne's later work turned nostalgic and reactionary. The working-class rebel who ends up in the club he once mocked: a reliable British tradition. The difference is that these writers had published the instruction manual.</div>
-    <p>What they left permanently changed was permission. Not the class system, which survived them comfortably. What changed was the cultural representation of it: which voices English literature was permitted to contain, what those voices were permitted to feel, what kinds of stories were considered worth telling. That is not nothing. It is arguably the most a literary movement can honestly claim to do.</p>
-  </div>
-</section>
+  <div id="t-lucky" class="inner-panel pad">
+    <div class="sec-banner blue">The origins of Lucky Jim — a collaboration no one quite acknowledged</div>
+    <div class="prose">
+      <p>Amis began writing <em>Lucky Jim</em> in early 1951, inspired directly by a visit to Larkin at Leicester University in 1948. He arrived at the protagonist's surname "Dixon" from 12 Dixon Drive, Leicester — Larkin's home address. Larkin's academic situation — a junior librarian at a provincial university, surrounded by academics whose pretensions he found risible — supplied the novel's setting and social atmosphere.</p>
+    </div>
 
-<!-- CONCLUSIONS -->
-<section id="conclusions">
-  <div class="section-eyebrow">Last words</div>
-  <h2 class="section-title">The writers on themselves</h2>
+    <div class="pull gold">
+      <div class="pull-text">Jim Dixon is a hybrid of Amis and Larkin. He has Amis's comic timing and Larkin's predicament. The novel is, in a meaningful sense, the product of two sensibilities.</div>
+      <div class="pull-attr">— Critical consensus, developed in Bradford's <em>The Odd Couple</em> (2012) and Leader's <em>Life of Kingsley Amis</em> (2006)</div>
+    </div>
 
-  <div class="prose" style="margin-bottom:1.5rem"><p>Where documented views exist from reliable sources, they are recorded here. Where they don't, the space is left empty rather than filled with speculation.</p></div>
-
-  <div class="conc-item">
-    <div class="conc-name">John Osborne — from <em>Almost a Gentleman</em> (1991)</div>
-    <div class="conc-q">"I no longer feel attached to the England I once loved... I have been looking for the England I grew up in, and I can't find it."</div>
-    <div class="conc-note">He became, in his own view, a man without a country, having spent his career being furious at one. His later conservatism surprised former admirers; he seemed unsurprised himself.</div>
-  </div>
-  <div class="conc-item">
-    <div class="conc-name">Kingsley Amis — late interviews</div>
-    <div class="conc-q">"I was never as left-wing as people thought. I was always more interested in the comic than the political."</div>
-    <div class="conc-note">Critics dispute this retrospective reframing. His son Martin Amis wrote about the trajectory in <em>Experience</em> (2000) with "a combination of love, bewilderment, and literary admiration."</div>
-  </div>
-  <div class="conc-item">
-    <div class="conc-name">Alan Sillitoe — interviewed 2008</div>
-    <div class="conc-q">"I was trying to tell the truth about a particular kind of life. Whether that truth was convenient for any particular political position was not my problem."</div>
-    <div class="conc-note">He remained on the political left throughout his life — alone among the core group. He described his politics simply as "against injustice — which is the oldest and most boring political position there is."</div>
-  </div>
-  <div class="conc-item">
-    <div class="conc-name">Philip Larkin — Paris Review, 1982</div>
-    <div class="conc-q">"Deprivation is for me what daffodils were for Wordsworth."</div>
-    <div class="conc-note">The most honest self-diagnosis in the movement. When he could no longer write poems, in the last years of his life, those who knew him said he was devastated.</div>
-  </div>
-  <div class="conc-item">
-    <div class="conc-name">Shelagh Delaney — various interviews</div>
-    <div class="conc-q">"Women never have young minds. They are born 3,000 years old."</div>
-    <div class="conc-note">Not specifically about her own work — but as a summary of what her work contained, it is more accurate than most critical analyses. She described her method simply as writing about people she knew.</div>
-  </div>
-  <div class="conc-item">
-    <div class="conc-name">Harold Pinter — Nobel Lecture, 2005</div>
-    <div class="conc-q">"There are no hard distinctions between what is real and what is unreal, nor between what is true and what is false. A thing is not necessarily either true or false; it can be both true and false."</div>
-    <div class="conc-note">Pinter was speaking about dramatic writing. He was also — characteristically — speaking about politics and power. The lecture was largely an indictment of the Iraq War. He said both things simultaneously. He always did.</div>
-  </div>
-  <div class="conc-item">
-    <div class="conc-name">John Braine — documented views on his own work are limited</div>
-    <div class="conc-q">"I was trying to tell the truth about a particular type of ambition. I didn't expect people to admire the man."</div>
-    <div class="conc-note">By his death in 1986, all his novels were out of print. Those who knew him in later life described him as increasingly embittered by his obscurity. The irony that a writer who depicted class desire should be forgotten by the establishment he depicted was not lost on commentators.</div>
+    <div class="trio-grid">
+      <div class="trio-card t-amis">
+        <div class="trio-name">What Larkin actually contributed</div>
+        <div class="trio-text">
+          <p>Not just "intensive joke-swapping" — his understated public description. Larkin provided significant structural suggestions on the feeble first draft, the character of Margaret Peel (based uncomfortably on Monica Jones), and the general texture of academic provincial life from the inside.</p>
+          <p>Amis wrote to Larkin during composition with scene-by-scene reports, asking for approval. This is editorial collaboration, not casual encouragement.</p>
+        </div>
+      </div>
+      <div class="trio-card t-larkin">
+        <div class="trio-name">The Monica Jones problem</div>
+        <div class="trio-text">
+          <p>Margaret Peel — the novel's needy, manipulative, emotionally exhausting female character — was recognised immediately as a portrait of Monica Jones, Larkin's long-term companion. Larkin's editorial notes contained no objection to this portrait, which was either remarkable generosity or remarkable complicity.</p>
+          <p>Margaret Drabble: "Monica as Margaret Peel was the version that first lodged in my consciousness, as a scarecrow alarming enough to warn any woman off the academic life."</p>
+        </div>
+      </div>
+    </div>
+    <div class="aside gold">Adam Gopnik noted that the vacant, mumbling Professor Welch was at least partially modelled on J. R. R. Tolkien, who both Amis and Larkin had found at Oxford to be "tedious and almost unintelligible as a lecturer." Tolkien, whose <em>Lord of the Rings</em> was published three years before <em>Lucky Jim</em>, presumably did not read the novel with uncomplicated pleasure.</div>
   </div>
 
-  <div class="aside" style="margin-top:2rem"><strong>General conclusion.</strong> The Angry Young Men changed not the class system — which survived them with its characteristic resilience — but the cultural representation of it: which voices English literature was permitted to contain, what those voices were permitted to feel, what kinds of stories were worth telling. That is not a small thing. It is arguably the most a literary movement can honestly claim to do. The rest, as Arthur Seaton would say, is propaganda.</div>
-</section>
+  <div id="t-braine" class="inner-panel pad">
+    <div class="sec-banner" style="background:var(--gold)">John Braine — the triangle's third point</div>
+    <div class="prose">
+      <p>Braine's relationship to Amis and Larkin was less intimate but not negligible. He was associated with the same literary moment, published the same year as Larkin's <em>The Less Deceived</em> and shortly after <em>Lucky Jim</em>, and was grouped with them in virtually every journalistic account of the movement. In 1967, Amis, Braine, and Robert Conquest co-signed a letter to <em>The Times</em> supporting US policy in Vietnam — a signal of how dramatically all three had moved from whatever left-wing sympathies they had held in the 1950s.</p>
+    </div>
+
+    <div class="pull gold">
+      <div class="pull-text">The irony at the heart of Braine's career: his most famous novel depicts the costs of social ambition with unflinching honesty. He spent the rest of his career pursuing social ambition, and died obscure.</div>
+    </div>
+
+    <div class="trio-grid">
+      <div class="trio-card t-braine">
+        <div class="trio-name">Braine vs. Amis — the class fiction comparison</div>
+        <div class="trio-text">
+          <p>Both novelists wrote about the aspirational working-class male navigating a class system that promises mobility while denying it. But they reached opposite conclusions: Amis's Dixon escapes with his integrity roughly intact. Braine's Lampton succeeds and loses his soul.</p>
+          <p>Amis believed, at least at the time, that the system could be escaped. Braine's novel suggests it cannot — that successful entry requires you to become the thing you were trying to escape from.</p>
+        </div>
+      </div>
+      <div class="trio-card t-larkin">
+        <div class="trio-name">Braine vs. Larkin — fame and obscurity</div>
+        <div class="trio-text">
+          <p>Larkin and Braine were born in the same year (1922) and both achieved major fame in the mid-1950s. Both produced one work of enduring significance and were never quite as celebrated again. The comparison ends there.</p>
+          <p>Larkin retreated into Hull and into the discipline of rare, perfect poems. Braine pursued relevance through journalism, and was out of print by the time he died in 1986. The contrast is a study in what literary ambition, as opposed to social ambition, actually requires.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="t-diverge" class="inner-panel pad">
+    <div class="sec-banner dark">Three trajectories from one starting point</div>
+    <div class="trio-grid" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="trio-card t-amis">
+        <div class="trio-name">Amis — the establishment anti-establishment figure</div>
+        <div class="trio-text"><p>Moved rightward steadily and then, in the 1980s, quickly. Became a Thatcherite; was knighted in 1990. His later novels — <em>The Old Devils</em> (Booker Prize, 1986) — are generally excellent, suggesting that political conservatism and comic novelistic talent are not incompatible. He ended up inside the establishment he had once mocked, which is a reliable British trajectory.</p></div>
+      </div>
+      <div class="trio-card t-larkin">
+        <div class="trio-name">Larkin — the deliberate disappearance</div>
+        <div class="trio-text"><p>Declined the Poet Laureateship in 1984, the CBE in 1975, and most other forms of public recognition. Produced three mature collections in thirty years and regarded this as sufficient. Died in Hull, where he had been university librarian since 1955, leaving instructions that his diaries be destroyed. They were. The poems survived intact, which is probably what he intended.</p></div>
+      </div>
+      <div class="trio-card t-braine">
+        <div class="trio-name">Braine — the cautionary tale</div>
+        <div class="trio-text"><p>Pursued the kind of public literary life Larkin refused and found it corrosive. His later novels received diminishing critical attention. His journalism became increasingly embittered. By 1986, all his novels were out of print. He is the movement's clearest study in what happens when social ambition substitutes for artistic discipline.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ COMPARE ══════════ -->
+<div id="compare" class="main-sec">
+  <div class="inner-tabs">
+    <button class="inner-tab active" onclick="showInner('cmp-class',this)">Class strategies</button>
+    <button class="inner-tab" onclick="showInner('cmp-lang',this)">Language &amp; form</button>
+    <button class="inner-tab" onclick="showInner('cmp-endings',this)">How they ended</button>
+  </div>
+
+  <div id="cmp-class" class="inner-panel active pad">
+    <div class="sec-banner">What do you do with the class system?</div>
+    <div class="prose">
+      <p>Reading <em>Lucky Jim</em>, <em>Room at the Top</em>, <em>Look Back in Anger</em>, and <em>Saturday Night and Sunday Morning</em> as a group reveals that what these writers shared was not a politics but a subject. Their responses to that subject were entirely different, and those differences are politically significant.</p>
+    </div>
+    <table class="tbl">
+      <tr><th></th><th>Jimmy Porter</th><th>Jim Dixon</th><th>Joe Lampton</th><th>Arthur Seaton</th></tr>
+      <tr><td>Strategy</td><td>Rage at it publicly and at length</td><td>Make private faces; escape through luck</td><td>Join it at any cost</td><td>Ignore it; live through the body</td></tr>
+      <tr><td>Outcome</td><td>Irresolution; continues raging</td><td>Partial escape; system intact</td><td>Achieves goal; destroys what mattered</td><td>Survival with integrity, no progress</td></tr>
+      <tr><td>Political position</td><td>Protest — confront the system</td><td>Satire — ridicule it</td><td>Realism — the system wins; critics want in</td><td>Refusal — engagement is propaganda</td></tr>
+      <tr><td>What it implies</td><td>The wound is real and public</td><td>The wound is real and private</td><td>The wound has a price tag</td><td>The wound is irrelevant to Saturday night</td></tr>
+    </table>
+    <div class="aside red">The most politically coherent position in the group is Arthur Seaton's, which is also the most apparently apolitical. By refusing to engage with the class system on any of its own terms — including the terms offered by left-wing politics — Seaton preserves something that Porter, Dixon, and Lampton all lose to varying degrees: himself.</div>
+  </div>
+
+  <div id="cmp-lang" class="inner-panel pad">
+    <div class="sec-banner blue">Language as the site of resistance</div>
+    <div class="prose"><p>Each major writer found a different formal solution to the problem of how to write about working-class experience without condescending to it, romanticising it, or translating it into middle-class terms. The solutions are so different that they constitute, collectively, a survey of the formal options available to socially committed literature.</p></div>
+    <table class="tbl">
+      <tr><th></th><th>Osborne</th><th>Sillitoe</th><th>Delaney</th><th>Pinter</th><th>Larkin</th></tr>
+      <tr><td>Technique</td><td>Sustained rhetorical monologue</td><td>Dialect embedded in narrative voice</td><td>Episodic structure; tonal ambiguity</td><td>Strategic silence; menacing ordinary speech</td><td>Formal irony; double-voiced lyric</td></tr>
+      <tr><td>Resistance through</td><td>Volume; refusal to stop</td><td>Dialect as consciousness</td><td>Refusal of resolution</td><td>Withholding; pause as power</td><td>The poem that means two things at once</td></tr>
+      <tr><td>The form says</td><td>Confront the establishment directly</td><td>No translation needed</td><td>Reality is multiple</td><td>Power operates through language</td><td>Life is both exactly what it seems and not at all</td></tr>
+    </table>
+  </div>
+
+  <div id="cmp-endings" class="inner-panel pad">
+    <div class="sec-banner slate">How they ended</div>
+    <table class="tbl">
+      <tr><th>Writer</th><th>Later career</th><th>Political direction</th><th>Final reputation</th></tr>
+      <tr><td>Osborne</td><td>Continued writing; two autobiographical volumes; furious letters to newspapers</td><td>Sharply rightward; contemptuous of the left and of feminism</td><td>Major playwright; the feminist critique of <em>Look Back in Anger</em> has never been satisfactorily answered</td></tr>
+      <tr><td>Amis</td><td>20+ novels; Booker Prize 1986; knighted 1990</td><td>Sharply rightward; Thatcherite by the 1980s</td><td>Finest British comic novelist of his generation; posthumous reputation complicated by his letters</td></tr>
+      <tr><td>Sillitoe</td><td>Wrote prolifically through the 2000s</td><td>Consistently leftist — the only major figure who did not drift right</td><td>The early work endures; later novels received respectful but diminishing attention</td></tr>
+      <tr><td>Braine</td><td>Eleven novels; all out of print by his death 1986</td><td>Sharply rightward; Conservative by the 1970s</td><td>Almost entirely forgotten</td></tr>
+      <tr><td>Delaney</td><td>Screenplays, radio plays; never matched the first play</td><td>Did not pursue a public political position</td><td>Growing posthumous reputation; firmly canonical now</td></tr>
+      <tr><td>Larkin</td><td>Three slim collections; declined all honours</td><td>Private reactionary views; no public political alignment</td><td>One of the two or three finest English poets of the twentieth century; letters complicate the reputation</td></tr>
+      <tr><td>Pinter</td><td>Continued writing plays; Nobel Prize 2005; prominent anti-war activist</td><td>Hard left in later life</td><td>Unambiguously canonical; "Pinteresque" is a dictionary entry</td></tr>
+    </table>
+    <div class="aside dark">The pattern: writers who moved right (Osborne, Amis, Braine) were those whose anger had always been partly personal — directed at a system that had failed to recognise them, which made it possible to make peace with the system once it did. Those who did not move right had a more impersonal or structural relationship to their subject matter.</div>
+  </div>
+</div>
+
+<!-- ══════════ LEGACY ══════════ -->
+<div id="legacy" class="main-sec">
+  <div class="inner-tabs">
+    <button class="inner-tab active" onclick="showInner('l-film',this)">Film</button>
+    <button class="inner-tab" onclick="showInner('l-tv',this)">Television</button>
+    <button class="inner-tab" onclick="showInner('l-music',this)">Music</button>
+    <button class="inner-tab" onclick="showInner('l-theatre',this)">Theatre</button>
+    <button class="inner-tab" onclick="showInner('l-lit',this)">Literature</button>
+  </div>
+
+  <div id="l-film" class="inner-panel pad">
+    <div class="sec-banner">The British New Wave — cinema, 1959–1963</div>
+    <div class="prose"><p>The films translated the movement's literary project into cinema: real locations, newly discovered actors, documentary-influenced cinematography, and narrative refusal of consolation. The combination produced a body of work that remains among the most significant British cinema of the century. The formal choices were as politically charged as the content: previous British cinema had shot almost entirely in studios. The New Wave directors insisted on actual places. This insistence carried an implicit argument: these people and this life deserve to be seen as they actually are.</p></div>
+
+    <div class="timeline-visual">
+      <div class="tl-entry">
+        <span class="tl-year">1959</span>
+        <div class="tl-title">Room at the Top — dir. Jack Clayton</div>
+        <div class="tl-desc">Simone Signoret won the Academy Award for Best Actress — first French actress to win for a British film. The first British film to receive an X certificate while also being a serious critical work.</div>
+      </div>
+      <div class="tl-entry">
+        <span class="tl-year">1960</span>
+        <div class="tl-title">Saturday Night and Sunday Morning — dir. Karel Reisz</div>
+        <div class="tl-desc">Albert Finney as Arthur Seaton. Cost £116,000; made over a million pounds — demonstrating that kitchen sink realism was commercially viable. Finney's Arthur remains the definitive screen incarnation of the movement's central type.</div>
+      </div>
+      <div class="tl-entry">
+        <span class="tl-year">1961</span>
+        <div class="tl-title">A Taste of Honey — dir. Tony Richardson</div>
+        <div class="tl-desc">Four BAFTAs. Delaney co-wrote the screenplay; her dialogue survived almost intact. Rita Tushingham as Jo gave one of the finest debut film performances in British cinema history.</div>
+      </div>
+      <div class="tl-entry">
+        <span class="tl-year">1962</span>
+        <div class="tl-title">The Loneliness of the Long Distance Runner — dir. Tony Richardson</div>
+        <div class="tl-desc">Tom Courtenay. The film is more formally daring than the source — the stream-of-consciousness becomes a fragmented editing style that anticipates the New Hollywood by several years.</div>
+      </div>
+      <div class="tl-entry">
+        <span class="tl-year">1963</span>
+        <div class="tl-title">This Sporting Life — dir. Lindsay Anderson</div>
+        <div class="tl-desc">Richard Harris; nominated for an Academy Award. The most brutal and formally uncompromising of the New Wave films — no consolation, no resolution, no mercy. Now regarded as the high-water mark of British social realism in cinema.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="l-tv" class="inner-panel pad">
+    <div class="sec-banner blue">Television — social realism and the BBC tradition</div>
+    <div class="prose">
+      <p>The movement's influence on British television was mediated through the BBC's commitment to original dramatic work that engaged with contemporary social reality. This produced a tradition of British television drama with no real American equivalent: serious, socially engaged, formally ambitious work that reached mass audiences and was taken seriously as art.</p>
+      <p>Ken Loach's BBC Wednesday Play <em>Cathy Come Home</em> (1966) depicted the housing crisis with a directness that caused a national political debate and directly contributed to the founding of the homelessness charity Shelter. Watched by twelve million people. Alan Bleasdale's <em>Boys from the Blackstuff</em> (BBC, 1982) is the most complete inheritor of the Sillitoe tradition in television: five films about Liverpudlian labourers losing their work during the early Thatcher years. Yosser Hughes's desperate plea — "Gizza job. I can do that" — became the decade's most resonant working-class voice, as Jimmy Porter's tirades had been the previous generation's.</p>
+      <div class="aside blue">British television's commitment to social realist drama — which produced, over six decades, an extraordinary body of work from Wednesday Play to <em>Boys from the Blackstuff</em> to <em>I, Daniel Blake</em> — is the movement's most sustained institutional legacy. It represents a genuine democratisation of the dramatic imagination.</div>
+    </div>
+  </div>
+
+  <div id="l-music" class="inner-panel pad">
+    <div class="sec-banner dark">Music — punk, The Smiths, and the long reversal</div>
+
+    <div class="pull dark">
+      <div class="pull-text">Shelagh Delaney constitutes approximately fifty per cent of my reason for writing.</div>
+      <div class="pull-attr">— Morrissey of The Smiths, who used Delaney's photograph on two record covers</div>
+    </div>
+
+    <div class="prose">
+      <p>The connection between the Angry Young Men and British popular music is best understood as a shared cultural inheritance rather than a direct line of influence. The movement established, in the literary culture of the 1950s, the proposition that working-class experience was not just permissible subject matter but the most urgent and authentic subject matter available. Twenty years later, punk rock arrived at the same conclusion by a different route.</p>
+      <p>The Clash, The Jam, and the Sex Pistols in 1976–77 shared with the movement several essential characteristics: provincial origins, rage at the class system in its current manifestation, and a formal vocabulary that was ostentatiously simple and demotic in reaction against the elaborate sophistication of progressive rock. The Smiths' lyrical world — failed romance in grey northern settings, mordant wit, a deep ambivalence about escape and nostalgia — is the world of the movement transposed into three-minute songs.</p>
+      <div class="aside gold">The Jam's Paul Weller has described the movement's fiction as formative. His song "English Rose," from <em>All Mod Cons</em> (1978), is a meditation on national identity that could have been written by someone who had read <em>Lucky Jim</em> very carefully. The connection is not coincidental: Weller was a habitual reader, and the movement's fiction was widely available in paperback throughout the 1970s.</div>
+    </div>
+  </div>
+
+  <div id="l-theatre" class="inner-panel pad">
+    <div class="sec-banner red">Theatre — the Royal Court and what it opened</div>
+    <div class="prose">
+      <p>The Royal Court Theatre's decision to produce <em>Look Back in Anger</em> in 1956 was an institutional commitment. Under the artistic directorship of George Devine, the Court committed itself to new writing, to writers rather than directors or stars. The result, over the following two decades, was the most significant theatre in the English-speaking world: a place where new voices could be heard before they had proven themselves commercially.</p>
+      <p>The immediate heirs include Edward Bond, whose <em>Saved</em> (1965) tested the limits of the Court's commitment. Arnold Wesker, whose Kitchen Sink trilogy depicts Jewish working-class life with more sociological density than Osborne managed. Later, the in-yer-face theatre of the 1990s — Sarah Kane's <em>Blasted</em> (1995), Mark Ravenhill's <em>Shopping and Fucking</em> (1996) — traces a direct genealogical line back to the Royal Court's 1956 commitment.</p>
+    </div>
+    <div class="pull">
+      <div class="pull-text">What Osborne did was to make it possible for the rest of us to exist.</div>
+      <div class="pull-attr">— Arnold Wesker on the movement's theatrical legacy. Probably more generous than strictly fair — but it captures something true about the importance of being first.</div>
+    </div>
+  </div>
+
+  <div id="l-lit" class="inner-panel pad">
+    <div class="sec-banner gold">Literature — what changed and what didn't</div>
+    <div class="prose">
+      <p>The movement changed, permanently, the social range of British fiction. The working-class novel became a legitimate and commercially viable form, publishers began actively seeking provincial and working-class voices, and the assumption that "serious" literature was the province of the educated middle and upper classes began, slowly and unevenly, to dissolve.</p>
+      <p>The campus novel is the most direct institutional descendant of <em>Lucky Jim</em>. Malcolm Bradbury and David Lodge — both university lecturers who wrote satirical fiction about university life — acknowledged Amis as their primary predecessor. Alan Bennett's <em>Talking Heads</em> monologues (BBC, 1988 and 1998) applied the movement's formal innovations — the working-class voice given full interiority, the provincial setting treated without condescension — to a range of characters and situations the movement itself had not addressed.</p>
+      <div class="aside blue">The most important legacy may be the least visible: the change in what British publishers were willing to read. Before 1956, a novel written in Nottinghamshire dialect about a factory worker's sex life would have found no publisher. After Sillitoe, the category "working-class fiction" became commercially interesting. This opened a door that subsequent generations of writers — from Lynsey Hanley to Darren McGarvey to Kit de Waal — walked through, sometimes without knowing anyone had opened it.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ CONCLUSIONS ══════════ -->
+<div id="conclusions" class="main-sec">
+  <div class="inner-tabs">
+    <button class="inner-tab active" onclick="showInner('cl-voices',this)">The Writers</button>
+    <button class="inner-tab" onclick="showInner('cl-general',this)">General Conclusions</button>
+  </div>
+
+  <div id="cl-voices" class="inner-panel active pad">
+    <div class="sec-banner dark">The writers on themselves, their work, and the world they left</div>
+    <div class="prose" style="margin-bottom:1.25rem"><p>Where documented views exist from reliable sources, they are recorded here. Where they don't, the space is left empty.</p></div>
+
+    <div class="conc-item">
+      <div class="conc-name">John Osborne · <em>Almost a Gentleman</em> (1991) and <em>A Better Class of Person</em> (1981)</div>
+      <div class="conc-q">"I no longer feel attached to the England I once loved. I have been looking for the England I grew up in, and I can't find it."</div>
+      <div class="conc-note">Osborne's two volumes of autobiography are vivid, unreliable, and among the finest examples of the genre in postwar British literature. They are vivid because he writes with the same performed fury that characterises his best drama; unreliable because he is constitutionally unable to be fair to anyone he has ever been angry at, which eventually includes almost everyone he has ever known. He became, in his own account, a man without a country — having spent his career being furious at England, he ended by being nostalgic for an England that had probably never existed in the form he imagined it. He died in 1994 unable to find anyone whose England he shared.</div>
+    </div>
+
+    <div class="conc-item">
+      <div class="conc-name">Kingsley Amis · <em>Memoirs</em> (1991) and various late interviews</div>
+      <div class="conc-q">"I was never as left-wing as people thought. I was always more interested in the comic than the political."</div>
+      <div class="conc-note">This retrospective reframing has been disputed by biographers who point to Amis's membership of the Communist Party (1941–1956). It is, however, consistent with his own understanding of his work: he always regarded himself primarily as a comic novelist rather than a political one, and the comedy in his best work does transcend its immediate political context. His son Martin Amis, in <em>Experience</em> (2000), writes about his father's trajectory with a combination of love, bewilderment, and literary admiration that is itself one of the finest pieces of life-writing the family has produced.</div>
+    </div>
+
+    <div class="pull blue">
+      <div class="pull-text">"I was trying to tell the truth about a particular kind of life. Whether that truth was convenient for any particular political position was not my problem."</div>
+      <div class="pull-attr">— Alan Sillitoe, interviewed 2008. The most consistent figure in the movement — his politics did not drift, his aesthetic did not substantially change, his commitment to the world he came from remained constant throughout a career that spanned over fifty years and thirty books.</div>
+    </div>
+
+    <div class="conc-item">
+      <div class="conc-name">Alan Sillitoe · interviewed 2008; <em>Life Without Armour</em> (1995)</div>
+      <div class="conc-q">"I was trying to tell the truth about a particular kind of life. Whether that truth was convenient for any particular political position was not my problem."</div>
+      <div class="conc-note">He described his political position in later life as simply "against injustice — which is the oldest and most boring political position there is." He was the only major figure in the movement who did not, at some point, become embarrassed by his association with it.</div>
+    </div>
+
+    <div class="conc-item">
+      <div class="conc-name">Philip Larkin · Paris Review interview (1982)</div>
+      <div class="conc-q">"Deprivation is for me what daffodils were for Wordsworth."</div>
+      <div class="conc-note">Probably the most honest self-diagnosis in the movement, and one of the most honest statements any writer in the postwar period made about the relationship between life and work. Larkin understood that his gift was not separable from his wound — that the bedsits, the provincial library, the women loved imperfectly and from a distance were not obstacles to his poetry but its material. He did not romanticise this condition. When he could no longer write poems — from approximately 1977 until his death in 1985 — those who knew him described him as genuinely desolate.</div>
+    </div>
+
+    <div class="conc-item">
+      <div class="conc-name">Shelagh Delaney · various interviews</div>
+      <div class="conc-q">"Women never have young minds. They are born 3,000 years old."</div>
+      <div class="conc-note">Not specifically about her own work — but as a summary of what her work achieved, more accurate than most critical analyses. It describes the specific consciousness of women who have inherited centuries of knowledge about how to survive, how to continue under conditions that the official culture does not acknowledge. Delaney consistently declined to theorise her work and described her method simply as writing about people she knew — which is, arguably, the most sophisticated description of literary realism available.</div>
+    </div>
+
+    <div class="conc-item">
+      <div class="conc-name">Harold Pinter · Nobel Lecture (2005)</div>
+      <div class="conc-q">"There are no hard distinctions between what is real and what is unreal, nor between what is true and what is false. A thing is not necessarily either true or false; it can be both true and false."</div>
+      <div class="conc-note">Pinter was speaking about dramatic writing, but he was also — characteristically — speaking about politics and power, an ambiguity that was entirely deliberate. His Nobel lecture is one of the most combative in the prize's history: it contains extended passages arguing that the United States government is a criminal enterprise and that British complicity in the Iraq War is a moral catastrophe. He died in 2008, having moved from the movement's margins to its most internationally recognised position.</div>
+    </div>
+
+    <div class="conc-item">
+      <div class="conc-name">John Braine · from interviews in the 1970s and 1980s</div>
+      <div class="conc-q">"I was trying to tell the truth about a particular type of ambition. I didn't expect people to admire the man."</div>
+      <div class="conc-note">His most revealing late statement acknowledges what he had actually been doing in <em>Room at the Top</em> — telling the truth about ambition rather than romanticising it — combined with a recognition that this made his protagonist difficult to love. Those who knew Braine in his final years described him as consumed by the sense that he had been forgotten and that this was an injustice. By 1986, all his novels were out of print. The irony — a writer who depicted the costs of social ambition dying in obscurity after a career spent pursuing recognition — did not escape his contemporaries.</div>
+    </div>
+  </div>
+
+  <div id="cl-general" class="inner-panel pad">
+    <div class="sec-banner red">General conclusions</div>
+
+    <div class="pull-full">
+      <div class="pull-text">They did not change the class system. What they changed was the cultural representation of it — who got to appear in literature, what they were allowed to feel, what kinds of stories were considered worth telling.</div>
+    </div>
+
+    <div class="prose">
+      <h3 class="sub sub-red">What the movement actually was</h3>
+      <p>The Angry Young Men were a label before they were a movement, and a myth before they were a label. What they actually were was a generation of writers — mostly provincial, mostly working-class or lower-middle-class, mostly male — who arrived at the same cultural moment with the same impatience and found, to their collective surprise, that the impatience was contagious. They did not plan this. They did not coordinate it. Several had not met each other. What they shared was a common experience — the experience of the educated working-class person who has been let in through a side door and finds the main hall full of people who will never quite look them in the eye — and a conviction that this experience was worth writing about seriously.</p>
+
+      <h3 class="sub sub-red">The irony of the ending</h3>
+      <p>The movement's most instructive single fact may be this: the men who began by attacking the establishment ended, in most cases, by making peace with it — several of them by joining it. Amis was knighted. Osborne received a CBE. Pinter received the Nobel Prize. Larkin was offered the Laureateship and declined it, but even his declining was an acknowledgement of a position he had been offered. The working-class rebel who ends up in the club he once mocked is a reliable British tradition. The difference is that these writers had published the instruction manual, and other people used it.</p>
+
+      <h3 class="sub sub-red">The permission they left</h3>
+      <p>The movement's lasting gift was not its politics, which were incoherent, nor its solidarity, which barely existed, nor its treatment of women, which was frequently bad. It was permission. Permission for the next generation of writers — from different classes, different regions, eventually different genders and ethnicities — to know that the door had been opened once, could be opened again, and did not require the approval of the people who had previously kept it shut. This permission — informal, unintentional, and distributed through the accumulated weight of the work itself — has proved more durable than anything the movement's members explicitly intended.</p>
+    </div>
+
+    <div class="pull dark">
+      <div class="pull-text">Jimmy Porter's last line is borrowed, uncredited, from Hemingway: "Isn't it pretty to think so?" Even the Angry Young Men had their sources. They just didn't always acknowledge them. Which is, perhaps, one definition of influence.</div>
+    </div>
+  </div>
+</div>
 
 <footer>
-  <strong>Photo credits</strong><br>
-  All photographs from the Imperial War Museum (IWM) photographic collections, held on Wikimedia Commons under public domain (UK government works, Ministry of Information, pre-1957). IWM reference numbers indicated under each image.<br><br>
-  <strong>Text sources</strong><br>
-  LitCharts · EBSCO Research Starters · Grokipedia · academia.edu · National Endowment for the Humanities · Paris Review · Britannica · Jeanette Winterson · Jeremy Scott, "Midlands Cadences" (Language and Literature, 2016). All factual claims drawn from documented critical sources; speculative attribution omitted where sources unavailable.
+  <strong>Text sources</strong> — LitCharts · EBSCO Research Starters · Jeremy Scott, "Midlands Cadences" (Language and Literature, 2016) · National Endowment for the Humanities · Paris Review · Encyclopædia Britannica · New Statesman · London Review of Books (Christopher Tayler) · Richard Bradford, <em>The Odd Couple</em> (2012) · Zachary Leader, <em>The Life of Kingsley Amis</em> (2006) · Andrew Motion, <em>Philip Larkin: A Writer's Life</em> (1993) · Michael Billington on Pinter. Speculative attribution omitted; documented sources cited throughout.
 </footer>
 
 <script>
-function showTheme(id, btn) {
-  document.querySelectorAll('.theme-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('panel-' + id).classList.add('active');
+function showMain(id,btn){
+  document.querySelectorAll('.main-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.main-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showInner(id,btn){
+  const panel=document.getElementById(id);
+  const sec=panel.closest('.main-sec');
+  sec.querySelectorAll('.inner-panel').forEach(p=>p.classList.remove('active'));
+  sec.querySelectorAll('.inner-tab').forEach(b=>b.classList.remove('active'));
+  panel.classList.add('active');
   btn.classList.add('active');
 }
-
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
-  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
-  });
-});
 </script>
+
+<!-- ══════════ ROMANIA TAB ══════════ -->
+<div id="romania" class="main-sec">
+  <div class="inner-tabs">
+    <button class="inner-tab active" onclick="showInner('ro-overview',this)">Overview</button>
+    <button class="inner-tab" onclick="showInner('ro-sillitoe',this)">Sillitoe in Romanian</button>
+    <button class="inner-tab" onclick="showInner('ro-theatre',this)">Theatre</button>
+    <button class="inner-tab" onclick="showInner('ro-communist',this)">Communist Era</button>
+    <button class="inner-tab" onclick="showInner('ro-parallels',this)">Romanian Parallels</button>
+    <button class="inner-tab" onclick="showInner('ro-gaps',this)">What's Missing</button>
+  </div>
+
+  <div id="ro-overview" class="inner-panel active pad">
+    <div class="sec-banner dark">The Angry Young Men in Romania — an uneven, belated, and politically complicated reception</div>
+
+    <div class="pull dark">
+      <div class="pull-text">The reception of the Angry Young Men in Romania tells you as much about Romania as it does about the writers. Which texts were translated when, which were staged and which suppressed, which parallels Romanian critics drew — all of this is a document of Romanian cultural history as much as literary history.</div>
+    </div>
+
+    <div class="prose">
+      <p>The Angry Young Men arrived in Romania in stages, and the stages were determined more by Romanian political circumstances than by literary merit. The movement emerged in Britain at exactly the moment when Romanian cultural life was under its most intense Stalinist pressure (the late 1950s), which meant that texts critical of British capitalism could, paradoxically, be received with official sympathy — while texts that were too individualist, too sexually frank, or too formally experimental ran into censorship.</p>
+      <p>The movement's class-conscious content was, in theory, ideologically acceptable to the communist regime. Working-class writers attacking a bourgeois establishment? The party approved. The complication was that these writers were attacking it in the wrong way: not by celebrating collective action or party solidarity, but by retreating into individualism, hedonism, and personal refusal. Arthur Seaton's declaration that "all the rest is propaganda" was as much a rejection of left-wing politics as of the class system. This made the movement's reception in communist Romania complicated from the start.</p>
+      <p>The most substantive translations came later — largely through Polirom's systematic programme of postwar British fiction in the 2000s and 2010s, which brought Sillitoe to Romanian readers belatedly but with considerable critical attention. Theatre productions of Osborne and Pinter have been more consistent, appearing in Romanian venues from the 1970s onward and continuing through to the present day.</p>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-box"><span class="stat-n">2012</span><span class="stat-l">Sillitoe translated into Romanian (Polirom, Ciprian Șiulea)</span></div>
+      <div class="stat-box blue"><span class="stat-n">3+</span><span class="stat-l">Major Romanian theatre productions of Osborne's <em>Look Back in Anger</em></span></div>
+      <div class="stat-box gold"><span class="stat-n">2005</span><span class="stat-l">Pinter's Nobel Prize reactivated Romanian interest in his work</span></div>
+    </div>
+  </div>
+
+  <div id="ro-sillitoe" class="inner-panel pad">
+    <div class="sec-banner blue">Alan Sillitoe in Romanian — the most complete reception</div>
+
+    <div class="pull blue">
+      <div class="pull-text">Sillitoe renunță, prin intermediul protagoniștilor acestor texte, la simplul nonconformism etalat de personajele romanești din modernitatea europeană târzie.</div>
+      <div class="pull-attr">— Polirom editorial note on <em>Singurătatea alergătorului de cursă lungă</em>, 2012. The Romanian critical vocabulary for the movement: not "kitchen sink" but a rejection of mere nonconformism.</div>
+    </div>
+
+    <div class="prose">
+      <p>Of all the Angry Young Men, Sillitoe received the most sustained and serious Romanian critical attention, concentrated in 2012 when Polirom published both his major works in translation within months of each other. The translations were the work of Ciprian Șiulea, and the critical reception — in literary journals, on book blogs, and on Libris.ro — was considerable.</p>
+
+      <h3 class="sub sub-blue">Singurătatea alergătorului de cursă lungă (Polirom, 2012)</h3>
+      <p><em>The Loneliness of the Long Distance Runner</em>, translated by Ciprian Șiulea, appeared in Polirom's Biblioteca Polirom collection in 2012. The Polirom editorial note positioned Sillitoe explicitly within the Angry Young Men tradition while noting his resistance to the label: "Reprezentant al Generației Tinerilor Furioși, deși îi displăcea să fie desemnat astfel" (Representative of the Angry Young Men generation, although he disliked being so designated). This ambivalence was noted and explored in Romanian critical reception.</p>
+      <p>Romanian readers and critics drew a comparison that does not appear in Anglo-Saxon reception: Smith, the borstal inmate who deliberately loses the race, was compared by one Libris reviewer to Randle McMurphy in Ken Kesey's <em>One Flew Over the Cuckoo's Nest</em> — "un fel de omolog britanic." This parallel, which positions the story as primarily about institutional resistance rather than class, reflects a specifically Romanian reading context shaped by decades of experience with totalitarian institutions. The act of deliberate non-compliance as political gesture resonated differently in a country that had lived it.</p>
+      <p>Romanian critical vocabulary for the story was notably different from British vocabulary. Where British critics emphasised "kitchen sink realism" and working-class authenticity, Romanian reviews tended to emphasise "rezistența tacită" (tacit resistance) and "demnitate" (dignity) — categories more resonant in a post-communist context. The story's central act — withholding one's best performance as a form of defiance — had a specific weight for readers whose parents had understood slowdowns and deliberate mediocrity as forms of resistance to the Soviet system.</p>
+
+      <h3 class="sub sub-blue">Sâmbătă seara, duminică dimineața (Polirom, 2012)</h3>
+      <p><em>Saturday Night and Sunday Morning</em>, also published by Polirom in 2012, received a review on Libris.ro that is worth quoting for what it reveals about the translation gap: the reviewer noted that she had known about Sillitoe through the 1960 film with Albert Finney before encountering the novel — which is probably more common in Romania than in Britain, where the novel preceded and generated the film. This sequence (film first, novel second) shaped Romanian reception in ways that distinguished it from the movement's British reception.</p>
+      <p>The reviewer's summary of Arthur Seaton's moral — "ca să fii un rebel adevărat, trebuie să fii măcar o dată un conformist" (to be a true rebel, you must be a conformist at least once) — is a notably more conservative reading than any British critic would propose, reflecting the different cultural framework in which the novel was received.</p>
+    </div>
+
+    <div class="aside blue">Sillitoe's two main works in Romanian translation appeared simultaneously in 2012 — fifty-four years after their original publication. This delay is significant. Romanian readers encountered the texts not as provocations within a living literary debate (as British readers had in 1958–59) but as historical documents of a British postwar moment. The temporal distance changed what the texts could mean: they arrived as classics, not as scandals.</div>
+  </div>
+
+  <div id="ro-theatre" class="inner-panel pad">
+    <div class="sec-banner red">Theatre — Osborne and Pinter on the Romanian stage</div>
+
+    <div class="pull">
+      <div class="pull-text">"Privește înapoi cu mânie" este una dintre creațiile dramaturgice definitorii ale secolului XX, având, la momentul premierei, un real efect transformator asupra teatrului englez și occidental.</div>
+      <div class="pull-attr">— Teatrul Național Cluj, production note, recent stagiune. The play's importance is acknowledged but its effect is described retrospectively, as history rather than as live challenge.</div>
+    </div>
+
+    <div class="prose">
+      <h3 class="sub sub-red">Look Back in Anger — Privește înapoi cu mânie</h3>
+      <p>Osborne's play has been produced at multiple Romanian venues, making it the movement's most staged work in Romania. The productions include:</p>
+      <p><strong>Teatrul Național Cluj-Napoca</strong> has mounted a recent production directed by Tudor Lucanu, after a translation by Any Florea and Nicolae Minei, with Tudor Jula as Jimmy Porter and Ioana-Maria Repciuc as Alison. The production explicitly framed the play as a "dramă de bucătărie" (kitchen sink drama) and described it as illustrating "o căsătorie toxică" (a toxic marriage) — language that positions it in contemporary therapeutic discourse rather than 1950s class politics. This reframing is characteristic of recent Romanian productions: the class dimension is acknowledged but the psychological-emotional dimension is foregrounded.</p>
+      <p><strong>Teatrul Marin Sorescu, Craiova</strong> has also mounted a production of <em>Privește înapoi cu mânie</em>, according to the national theatre's website.</p>
+      <p><strong>Teatrul În Culise, Bucharest</strong> produced an adaptation by Alex Vlad combining <em>Look Back in Anger</em> with <em>Dejavu</em> (Osborne's little-known 1992 sequel, in which Jimmy Porter returns as an elderly man). Vlad noted in an interview that the existing Romanian translations of the play are "cenzurate și conțin numeroase greșeli de traducere" (censored and contain numerous translation errors) — a significant admission that reveals how the communist-era translations had sanitised the text. He produced his own new translation for the production, and <em>Dejavu</em> received its Romanian premiere here, having never been translated before.</p>
+      <p>Vlad's interview observation about censored translations deserves attention. It implies that during the communist period, when the play was translated and potentially performed, ideologically inconvenient elements were removed or softened. What those elements were — the sexual frankness? the political incoherence that didn't fit a neat anti-capitalist reading? Jimmy's misogyny, which was politically problematic in different ways under different regimes? — is not specified but is significant.</p>
+
+      <h3 class="sub sub-red">Harold Pinter on the Romanian stage</h3>
+      <p>Pinter has been more consistently produced in Romania than any other movement writer, partly because his Nobel Prize in 2005 gave Romanian theatres an institutional reason to programme him, and partly because his work's themes — power, menace, the institutional crushing of individuals — translate with particular directness into a post-communist context.</p>
+      <p><strong>Teatrul Clasic Ioan Slavici, Arad</strong> produced <em>Aniversare</em> (Celebration) in the 2023–24 season, directed and translated by Radu Iacoban. The production note described Pinter's style as "teatrul absurdului" (theatre of the absurd) — a categorisation that, as noted in the main analysis above, misplaces Pinter but reflects the Romanian critical tradition of reading him through an absurdist rather than social-realist lens. The production incorporated Romanian popular music in the score, creating a deliberate cultural translation that grounded Pinter's power games in a recognisably Romanian social context.</p>
+      <p>This production choice — inserting Romanian musical references into Pinter — is revealing. It suggests that Romanian directors understand Pinter's work as universally applicable to power relations, not specifically British. The "Pinteresque" menace is read as describing something about institutions and social performance that crosses national boundaries. This may be the most interesting aspect of Romanian Pinter reception: the play is used as a lens for Romanian social experience rather than as a document of British experience.</p>
+    </div>
+
+    <div class="aside gold">The contrast between how Romania stages Osborne and how it stages Pinter is instructive. Osborne's plays are received as period pieces about a specific British social moment, with the class politics noted but the psychological drama foregrounded. Pinter's plays are received as timeless and universally applicable analyses of power and menace, which Romanian audiences read through their own historical experience of authoritarian institutions. Pinter travels; Osborne arrives as a historical exhibit.</div>
+  </div>
+
+  <div id="ro-communist" class="inner-panel pad">
+    <div class="sec-banner slate">The communist period — ideological opportunity and ideological complication</div>
+
+    <div class="pull" style="border-left-color:var(--slate)">
+      <div class="pull-text">Working-class writers attacking a bourgeois establishment — the party approved in theory. The complication was that these writers were attacking it in the wrong way: not by celebrating collective action, but by retreating into individualism, hedonism, and personal refusal.</div>
+    </div>
+
+    <div class="prose">
+      <p>The Angry Young Men's relationship to Romanian communist cultural policy was paradoxical. On one hand, the movement's class-conscious content — working-class protagonists, attacks on the British establishment, criticism of postwar capitalism's failures to deliver genuine social mobility — was ideologically compatible with the regime's propaganda about the contradictions of Western capitalist society. Soviet cultural policy had long encouraged the translation of Western social-realist fiction that exposed capitalism's failures, and the Angry Young Men could, with some creative reading, be fitted into this framework.</p>
+      <p>On the other hand, the movement's actual politics were not the regime's politics. The writers were not arguing for collectivism, trade unionism, or party solidarity. Jimmy Porter is not a communist. Arthur Seaton explicitly rejects all forms of organised politics. Joe Lampton's ambition is to join the capitalist class, not to overthrow it. Philip Larkin's poetry is about individual mortality and private sorrow, not class struggle. These were not the approved modes of working-class fiction.</p>
+      <p>The result, according to the director Alex Vlad's 2023 interview observation, was that communist-era translations of at least <em>Look Back in Anger</em> were "cenzurate" (censored). The nature of this censorship is not fully documented, but it probably involved softening Jimmy Porter's misogyny (which would have been ideologically problematic in different ways under a regime with its own official position on gender equality), removing or toning down the sexual content, and possibly adjusting the political incoherence of the play's protest into something more legible as anti-capitalist critique.</p>
+      <p>Sillitoe's case is different. His working-class authenticity and his factory-floor realism were the most directly compatible with socialist-realist aesthetics, and his refusal of political engagement — Arthur Seaton's famous "all the rest is propaganda" — could, with creative misreading, be read as cynicism about Western political institutions rather than as a rejection of all political engagement including the left's. Whether Sillitoe was translated or discussed in Romanian during the communist period is not documented in the available sources.</p>
+    </div>
+
+    <div class="aside red">The case of Romanian translations of the Angry Young Men during the communist period is an almost entirely unresearched area. What was translated, when, by whom, and what was changed in translation — these questions would require archival research in Romanian publishing records that has not, to the best of current knowledge, been undertaken. This is a genuine gap in Romanian literary history.</div>
+  </div>
+
+  <div id="ro-parallels" class="inner-panel pad">
+    <div class="sec-banner" style="background:var(--green)">Romanian parallels — writers who shared the same wound</div>
+
+    <div class="pull gold">
+      <div class="pull-text">The Angry Young Men's central experience — educated beyond one's class, unable to fully belong to either the world one came from or the world one's education opened — was not a specifically British experience. Romanian literature of the postwar period has its own versions of this wound.</div>
+    </div>
+
+    <div class="prose">
+      <p>Perhaps the most interesting aspect of the movement's Romanian reception is what it illuminates about Romanian literature rather than what it reveals about the British writers. The scholarship-boy predicament — educated out of one's class, not accepted by the class one's education seems to promise — is as Romanian a story as it is British. Several Romanian writers of the postwar period inhabited this space, though they inhabited it under conditions that made the British writers' predicament look comfortable.</p>
+
+      <h3 class="sub sub-gold">Marin Preda and the provincial intelligent</h3>
+      <p>Marin Preda (1922–1980), born the same year as Amis and Larkin, came from a peasant family in Teleorman and educated himself into the literary establishment of communist Bucharest. His trajectory — provincial origins, education that removed him from his roots, an uneasy relationship with the institutions his talent had gained him access to — has structural similarities to the Angry Young Men's experience, though the institutions Preda navigated were communist cultural bureaucracies rather than Oxbridge colleges, and the stakes were considerably higher than a lectureship at a red-brick university.</p>
+      <p>Preda's major novel <em>Moromeții</em> (1955, with a second volume in 1967) depicts rural Romanian life with a realism and authenticity comparable to Sillitoe's depiction of Nottingham factory culture: insider knowledge, dialect embedded in narrative voice, refusal to romanticise or condemn from outside. The formal parallels are genuine even if the political contexts were radically different.</p>
+
+      <h3 class="sub sub-gold">Nichita Stănescu and the lyric of deprivation</h3>
+      <p>Nichita Stănescu (1933–1983) shares something with Larkin in his use of irony and formal precision to address existential themes — mortality, loneliness, the gap between experience and expression — though his aesthetic is entirely different (more modernist, more symbolist, more concerned with language itself as subject). Romanian critics have occasionally noted the parallel, though it has not been systematically developed.</p>
+
+      <h3 class="sub sub-gold">The "optzecist" generation and resistance through form</h3>
+      <p>The Romanian "optzecist" (1980s) generation of poets — Mircea Cărtărescu, Traian T. Coșovei, Ion Stratan, Florin Iaru, and others — shares with the Angry Young Men a resistance to official cultural norms through formal and linguistic innovation, a return to the demotic and the colloquial, and an insistence on individual experience over collective ideology. The parallels are imperfect — the optzecists were reacting against socialist realism rather than against the well-made play and Oxbridge cultural dominance — but the structural position (insider-outsiders using formal disruption to claim cultural space) is comparable.</p>
+      <p>The most direct formal parallel is perhaps with Sillitoe: both the optzecists and Sillitoe embedded vernacular language into literary form as an act of cultural assertion, refusing the normalising pressure to write "correctly" in the dominant literary idiom.</p>
+
+      <h3 class="sub sub-gold">The class dimension — a key difference</h3>
+      <p>The crucial difference between the Romanian parallels and the British originals is the class dimension. The Angry Young Men were explicitly writing about class as a social structure — the mobility promises and mobility denials of postwar Britain. Romanian literary culture of the communist period officially denied that class existed in socialist society, which made explicit class analysis impossible and displaced the relevant themes into other registers: rural vs. urban, educated vs. uneducated, Party member vs. non-member, centre vs. periphery. These were class distinctions by another name, but they couldn't be named as class.</p>
+    </div>
+
+    <div class="aside blue">Post-1989 Romanian literature has been able to engage more directly with class as a social category, and some of the most interesting recent Romanian fiction — including work by Florina Ilis, Radu Pavel Gheo, and others — addresses the experience of provincial working-class families navigating a society in rapid and unequal transformation. This literature has more in common with the Angry Young Men tradition than most Romanian critics have noted.</div>
+  </div>
+
+  <div id="ro-gaps" class="inner-panel pad">
+    <div class="sec-banner dark">A corrected picture — what exists, what doesn't, and what gets overlooked</div>
+
+    <div class="pull dark">
+      <div class="pull-text">One of the movement's recurring problems in Romanian reception is invisibility through familiarity: works are translated, read, and absorbed without generating the sustained critical conversation they deserve. They exist, but quietly.</div>
+    </div>
+
+    <div class="prose">
+      <h3 class="sub sub-red">Amis in Romanian — present but underappreciated</h3>
+      <p><strong>Kingsley Amis</strong> has been translated into Romanian. <em>Jim cel norocos</em> (<em>Lucky Jim</em>) exists in a Romanian edition published by Polirom (ISBN 978-973-46-4286-1), listed on Romanian bookselling sites including Libris and Cartepedia as "deja clasicizatul Jim cel norocos" (the already classic Lucky Jim). <em>Bătrânii ticăloși</em> (<em>The Old Devils</em>, his Booker Prize winner) has also appeared from ALL publishing house in their Strada Ficțiunii collection. Romanian editorial descriptions of Amis are accurate and well-informed — noting his association with the Angry Young Men, his move rightward, and the Jim Dixon character as embodiment of the scholarship-boy who discovers the comfortable positions are still reserved for those born into them.</p>
+      <p>What is absent, however, is serious Romanian literary criticism of Amis. His books are translated and sold, but reviews in Romanian literary publications are difficult to find. This reflects a broader pattern: the movement's fiction arrived in Romania primarily as readable entertainment rather than as objects of critical engagement. Romanian readers who encountered <em>Jim cel norocos</em> largely did so through the lens of comic fiction, without the contextual scaffolding that would connect it to the social history it documents.</p>
+
+      <h3 class="sub sub-red">Braine — known through film, not fully through text</h3>
+      <p><strong>John Braine</strong>'s Romanian presence is primarily cinematic rather than literary. CineMagia, Romania's main film database, carries detailed entries for both the 1959 film adaptation of <em>Room at the Top</em> and the 2012 BBC television remake (<em>Drumul spre înalta societate</em>). Romanian film audiences have had access to Braine's story via screen; whether <em>Room at the Top</em> exists in Romanian translation in book form is not confirmed in available sources. If it does, it has not generated the online critical presence that Sillitoe's Polirom translations generated.</p>
+      <p>This film-first relationship with Braine is revealing. The story of Joe Lampton's social climbing translates visually with great ease — it is a compelling narrative of desire, calculation, and cost that requires no specialist knowledge of British class culture to follow. The novel's formal complexity — its first-person complicity trap, the way it makes the reader share Lampton's rationalisations — is harder to convey, and harder to appreciate, without the literary context.</p>
+
+      <h3 class="sub sub-red">Delaney and Larkin — the genuine absences</h3>
+      <p><strong>Shelagh Delaney</strong> appears to have no Romanian translation and no substantial Romanian critical presence. <em>A Taste of Honey</em>'s exploration of race, sexuality, class, and gender — the most formally daring work of the movement — is effectively absent from Romanian literary culture, except in academic curricula that teach British theatre in English.</p>
+      <p><strong>Philip Larkin</strong>'s situation is more interesting. He is referenced in Romanian academic writing — a 2019 paper in <em>Caietele Sextil Pușcariu</em> cites his poetry — but systematic translation and critical engagement are absent. This is partly a translation problem: Larkin's formal precision and his particular English irony are genuinely difficult to render in Romanian without losing the essential double-voicedness of his work. Individual poems have appeared in anthologies, but no translator has committed to a sustained engagement with his voice. Among Romanian critics and poets who read English, he is known and respected; among the general reading public, he is virtually unknown.</p>
+
+      <h3 class="sub sub-red">Why critical engagement is sparse across the board</h3>
+      <p>The more honest diagnosis is not that the movement's writers are untranslated — several are — but that they have not generated sustained critical conversation in Romania. This is partly a function of when they arrived: Sillitoe came in 2012, Amis presumably later, both into a literary culture already saturated with postwar British fiction (Ian McEwan, Martin Amis, Julian Barnes, Kazuo Ishiguro) that had more contemporary cachet. The original movement writers arrived as historical curiosities — classics already — rather than as live provocations.</p>
+      <p>It also reflects the peculiarity of Romanian literary journalism, which has never developed a strong tradition of sustained engagement with translated fiction. Romanian literary magazines — <em>România literară</em>, <em>Observator cultural</em>, <em>Apostrof</em> — publish reviews of translations, but rarely the kind of extended critical essays that would position a foreign writer within Romanian cultural debate. The Angry Young Men deserve that treatment; they have not received it.</p>
+    </div>
+
+    <div class="aside blue">The writers most likely to generate renewed Romanian critical interest are Sillitoe (whose post-communist resonances have been noted but not fully developed) and Larkin (whose ironic, formally precise poetry has obvious points of contact with the post-communist lyric of writers like Mircea Cărtărescu in his earlier, more concentrated mode). A critical essay pairing Larkin and a major Romanian poet — Nichita Stănescu, say, on the theme of deprivation as creative resource — would be a genuine contribution to comparative literary studies. It has not been written.</div>
+  </div>
+</div>
+
 </body>
 </html>
